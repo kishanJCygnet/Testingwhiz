@@ -157,7 +157,7 @@ add_filter('style_loader_tag', 'add_rel_preload', 10, 4);
 function defer_parsing_of_js($url)
 {
     if (is_user_logged_in()) return $url; //don't break WP Admin
-    if (FALSE === strpos($url, '.js', '.jgz')) return $url;
+    if (FALSE === strpos($url, '.js')) return $url;
     if (strpos($url, 'jquery.min.js')) return $url;
 	if (strpos($url, 'primary-navigation.js')) return $url;
     return str_replace(' src', ' defer src', $url);
