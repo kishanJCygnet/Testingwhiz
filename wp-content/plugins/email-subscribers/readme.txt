@@ -6,7 +6,7 @@ Tags: email marketing, subscription, autoresponder, post notification, welcome e
 Requires at least: 3.9
 Tested up to: 6.0
 Requires PHP: 5.6
-Stable tag: 5.4.0
+Stable tag: 5.4.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -310,13 +310,23 @@ Refer [here](https://www.icegram.com/documentation/es-faq/).
 
 == Upgrade Notice ==
 
-= 5.4.0 =
+= 5.4.1 =
 
-* New: Added drag and drop editor for building forms
-* Update: Added status dropdown to add to list action
-* Update: Support to exclude some Broadcast emails in Broadcast archive shortcode
+* Update: Better spam score checking
+* Fix: Custom HTML block in drag and drop editor not working properly 
+* Fix: Workflow not running on some setup
+* Fix: Optional parameter warning in PHP 8.1
+* Fix: Issue while creating a new campaign on some setup 
 
 == Changelog ==
+
+**5.4.1 (29.06.2022)**
+
+* Update: Better spam score checking
+* Fix: Custom HTML block in drag and drop editor not working properly 
+* Fix: Workflow not running on some setup
+* Fix: Optional parameter warning in PHP 8.1
+* Fix: Issue while creating a new campaign on some setup
 
 **5.4.0 (23.06.2022)**
 
