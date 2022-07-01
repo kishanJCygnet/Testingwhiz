@@ -162,21 +162,19 @@ if ( ! class_exists( 'ES_Reports_Data' ) ) {
 		 * @since 4.8.0
 		 */
 		public static function get_contacts_growth_percentage( $days = 60 ) {
+			//For example, It will get last 60'days subscribers count
+			$present_subscribers_count = ES()->lists_contacts_db->get_subscribed_contacts_count( $days );
+			//For example, It will get last 120'days subscribers count
+			$past_to_present_subscribers_count = ES()->lists_contacts_db->get_subscribed_contacts_count( $days * 2 );
+			//For example, It will get last 60-120'days subscribers count
+			$past_subscribers_count = intval( $past_to_present_subscribers_count ) - intval( $present_subscribers_count );
 
-			$this_week_contacts       = ES()->contacts_db->get_total_subscribed_contacts_by_date( $days );
-			$last_week_total_contacts = (int) ES()->contacts_db->get_total_subscribed_contacts_between_days( $days );
-			$this_week_total_contacts = 0;
-			if ( count( $this_week_contacts ) > 0 ) {
-				foreach ( $this_week_contacts as $date => $contact_count ) {
-					$this_week_total_contacts += $contact_count;
-				}
-			}
-			if ( $last_week_total_contacts <= 0 && $this_week_total_contacts <= 0 ) {
+			if ( $past_subscribers_count <= 0 && $present_subscribers_count <= 0 ) {
 				return 0;
-			} elseif ( $last_week_total_contacts <= 0 && $this_week_total_contacts > 0 ) {
+			} elseif ( $past_subscribers_count <= 0 && $present_subscribers_count > 0 ) {
 				return 100;
 			} else {
-				return round( ( $this_week_total_contacts - $last_week_total_contacts ) / $last_week_total_contacts * 100, 2 );
+				return round( ( $present_subscribers_count - $past_subscribers_count ) / $past_subscribers_count * 100, 2 );
 			}
 		}
 
