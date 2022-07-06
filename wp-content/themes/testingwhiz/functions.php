@@ -666,3 +666,82 @@ function favicon4admin() {
 echo '<link rel="icon" type="image/x-icon" href="' . get_theme_file_uri() . '/images/favicons/favicon.ico" />';
 }
 add_action( 'admin_head', 'favicon4admin' );
+
+
+/* Same email validation for forms */
+function is_already_submitted($formName, $fieldName, $fieldValue) {
+    require_once(ABSPATH . 'wp-content/plugins/contact-form-7-to-database-extension/CFDBFormIterator.php');
+    $exp = new CFDBFormIterator();
+    $atts = array();
+    $atts['show'] = $fieldName;
+	
+    $atts['filter'] = "$fieldName=$fieldValue";
+    $atts['unbuffered'] = 'true';
+    $exp->export($formName, $atts);
+    $found = false;
+    while ($row = $exp->nextRow()) {
+        $found = true;
+    }
+    return $found;
+}
+ 
+/**
+ * @param $result WPCF7_Validation
+ * @param $tag array
+ * @return WPCF7_Validation
+ */
+function my_validate_email($result, $tag) {
+    $formName = 'Contact Us'; // Change to name of the form containing this field
+    $fieldName = 'your-email'; // Change to your form's unique field name
+	
+	$formName1 = 'Get 15 Days Free Trial'; // Change to name of the form containing this field
+    $fieldName1 = 'your-email'; // Change to your form's unique field name
+    
+	$errorMessage = 'Email has already been submitted'; // Change to your error message
+    $name = $tag['name'];
+    if ($name == $fieldName) {
+        if (is_already_submitted($formName, $fieldName, $_POST[$name])) {
+            $result->invalidate($tag, $errorMessage);
+        }
+    } else if($name == $fieldName1){		
+		if (is_already_submitted($formName1, $fieldName1, $_POST[$name])) {
+            $result->invalidate($tag, $errorMessage);
+        } 
+	}
+	
+	/* Check domain name */
+	if (get_field('list_of_block_domains', 'option')) :	
+		$value = $_POST[$name];
+		/*add the domain names you want to block in the $domains array*/
+		//$domains = array("gmail.com", "yahoo.com", "hotmial.com"); 		  
+		$block_domain_list=esc_attr(get_field('list_of_block_domains', 'option'));
+		$spit_domains=array_map('trim',explode(",",$block_domain_list));
+		$domains = $spit_domains;
+		$udomain = explode('@', $value);
+
+		//select the email domain from the above splitted array
+		$email_domain = strtolower($udomain[1]);
+		$list_of_email_fields=esc_attr(get_field('list_of_email_fields_new', 'option'));
+		$split_email_field=array_map('trim',explode(",",$list_of_email_fields));
+
+		$email_value=$tag->name;
+		if(in_array($email_value,$split_email_field) ) {
+			//check entered value = $value exists in $domain array
+			if(in_array($email_domain, $domains)) {
+				//display error
+				$system_error='E-mail addresses with @'. explode('@', $value, 2)[1] .' are not allowed!';
+				$error_message=esc_attr(get_field('display_error_message_new', 'option'));
+				if(!empty($error_message)){
+					$result->invalidate( $tag, $error_message );
+				} else {
+					$result->invalidate( $tag, $system_error );
+				}
+			}
+		}
+	endif;
+	/* End check domain name */
+	
+    return $result;
+}
+// use the next line if your field is a **required email** field on your form
+add_filter('wpcf7_validate_email*', 'my_validate_email', 10, 2);
