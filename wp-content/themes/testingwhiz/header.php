@@ -36,10 +36,11 @@
     <link rel="icon" type="image/png" sizes="196x196" href="<?php echo get_theme_file_uri(); ?>/images/favicons/196.png">
     <link rel="icon" type="image/png" sizes="228x228" href="<?php echo get_theme_file_uri(); ?>/images/favicons/228.png">
 	
-	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo THEME_PATH; ?>css/animate.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/animate.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/style.css">
 	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=624e7021b2841900196d492a&product=sop' id='share-this-share-buttons-mu-js' async='async'></script>
 	
 	<?php wp_head(); ?>

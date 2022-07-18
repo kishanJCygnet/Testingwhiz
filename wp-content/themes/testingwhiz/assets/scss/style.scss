@@ -1,0 +1,20 @@
+// Third-party
+@import "partials/reset";
+@import "partials/variable";
+@import "partials/mixin";
+
+@import "vendor/fontawesome/fontawesome.scss";
+@import "vendor/fontawesome/solid.scss";
+@import "vendor/fontawesome/brands.scss";
+@import "vendor/flags.scss";
+
+// Partials
+@import "partials/layout";
+
+// Modules and Variables
+@import "module/header";
+@import "module/banner";
+@import "module/bg-withImage";
+@import "module/contactForm";
+@import "module/testimonial";
+@import "module/footer";    

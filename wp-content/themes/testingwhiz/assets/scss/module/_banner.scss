@@ -1,0 +1,116 @@
+//**************************** Start Banner Content******************************
+.banner-content {
+    padding: 0;
+    .banner-inner-content {
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        min-height: 90vh;
+        @include rem-fallback(margin-top, 60);
+        @include rem-fallback(padding-top, 100);
+        display: flex;
+        align-items: center;
+        background-color: #0c3761;
+        background-blend-mode: multiply;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: 1;
+        position: relative;
+    }
+    &.inner-page-banner {
+        .banner-inner-content {
+            height: 50vh;
+            @include rem-fallback(min-height, 300);
+        }
+    }
+    .text-content {
+        position: relative;
+        h1 {
+            color: #fff;
+            align-items: center;
+        }
+    }
+    .btn-primary {
+        background-color: #fff;
+        border-color: #fff;
+        color: #0c3761;
+        &:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+    }
+    .overlay.blue {
+        background-color: rgba(6, 30, 54, 0.747);
+    }
+    .down-arrow {
+        position: absolute;
+        right: 49%;
+        @include rem-fallback(bottom, -30);
+    }
+    .arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        span {
+            display: block;
+            @include rem-fallback(width, 30px);
+            @include rem-fallback(height, 30px);
+            border-bottom: 4px solid #fff;
+            border-right: 4px solid #fff;
+            transform: rotate(45deg);
+            @include rem-fallback(margin, -10px);
+            animation: animate 2s infinite;
+            &:nth-child(2) {
+                animation-delay: -0.2s;
+            }
+            &:nth-child(2) {
+                animation-delay: -0.4s;
+            }
+        }
+    }
+    h1 {
+        @include rem-fallback(margin-bottom, 40px);
+    }
+    h3 {
+        @include rem-fallback(margin-bottom, 40px);
+        font-weight: normal;
+    }
+    @include bp(lg-max) {
+        background-position: 0px -50px;
+    }
+}
+
+.post-type-archive-webinars,
+.half-banner {
+    .banner-inner-content {
+        height: 50vh;
+        @include rem-fallback(min-height, 300);
+    }
+}
+.half-banner {
+    .col-lg-7 {
+        width: 100% !important;
+        justify-content: center;
+    }
+    .align-items-center {
+        justify-content: center;
+    }
+}
+
+.post-type-archive-webinars,
+.banner-content.inner-page-banner {
+    .slide-content-main {
+        justify-content: center;
+    }
+}
+.post-type-archive-webinars {
+    .banner-content {
+        h1 {
+            color: #fff;
+            align-items: center;
+        }
+    }
+}
+
+// ********************** End Banner Content ***************************************

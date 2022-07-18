@@ -1,0 +1,414 @@
+*{
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+*:focus{
+    outline:0;
+}
+
+
+// body{
+//     @include rem-fallback(font-size, 14);
+//     @include rem-fallback(line-height, 18);
+//     height:100%;
+//     font-family: $roboto;
+// }
+
+// input[type="text"], 
+// input[type="email"],
+// input[type="password"],
+// textarea{-webkit-appearance:none;}
+// a{
+//     @include transition(0.3s all linear);
+//     text-decoration:none;
+//     display: inline-block;  
+//     opacity: 1;   
+//     font-size: 15px;
+//     font-weight: normal;
+//     font-style: normal;
+//     font-stretch: normal;
+//     line-height: 1.33;
+//     letter-spacing: normal;
+//     color: $gray;
+//     &:hover,&:focus{
+//         text-decoration:none;
+//         opacity: 0.8;
+//     }
+//     &:after{
+//           @include transition(0.3s all linear);
+//     }
+// }
+
+// ul{
+//     margin:0;
+//     padding:0;
+//     li{
+//         list-style:none; 
+//     } 
+// }
+
+// button:focus{
+//     outline: 0;
+// }
+
+// h1{
+//     @include rem-fallback(font-size, 35);
+//     @include rem-fallback(line-height, 40);  
+//     @include bp(xs-max){
+//       @include rem-fallback(font-size, 22);
+//       @include rem-fallback(line-height, 30);  
+//     }
+// }
+// h2{
+//     @include rem-fallback(font-size, 25);
+//     @include rem-fallback(line-height, 25);  
+// }
+// h3{
+//     @include rem-fallback(font-size, 21);
+//     @include rem-fallback(line-height, 21);
+//     @include rem-fallback(letter-spacing, 0.5);    
+// }
+
+// h4{
+//     @include rem-fallback(font-size, 22);
+//     @include rem-fallback(line-height, 26);
+//     font-family: $oduda-reguler;
+//     font-weight:500;
+// }
+// .container{
+//     @include rem-fallback(max-width, 1440);
+//     margin:0 auto;
+//     @include bp(xxl-max){
+//         @include rem-fallback(padding, 0,20);
+//     }
+// }
+// .wrapper{
+//   width: 100%;
+// }
+// section{
+//     @include rem-fallback(padding, 52,0);
+//     @include bp(md-max){
+//         @include rem-fallback(padding, 50,0);
+//     }
+//     @include bp(sm-max){
+//         @include rem-fallback(padding, 35,0);
+//     }
+// }
+// .form-control{
+//   &:focus{
+//     box-shadow: none;
+//   }
+// }
+// .btn{
+//    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.13);
+//    font-family: $muli-mulibold;
+//    font-size: 16px;  
+//    @include rem-fallback(font-size, 16);
+//    line-height: 1.5;  
+//    text-align: center;
+//      opacity: 1;
+//    @include rem-fallback(height, 39);
+//    border:0px;
+//    @include transition(0.3s all linear);
+//    @include border-radius(3px);
+//     @include rem-fallback(padding,0,10);
+    
+//   &:hover{
+//     opacity: 0.9;
+//   }
+// }
+// /*Color Section*/
+// .pale-grey{ color:$pale-grey !important;}
+// .brownish-grey{ color:$brownish-grey !important;}
+// .light-gold{ color:$light-gold !important;}
+// .cerulean-blue{ color:$cerulean-blue !important;}
+// .denim-blue{ color:$denim-blue !important;}
+// .black{ color:$black !important;}
+// .powder-blue{ color:$powder-blue !important;}
+// .darkish-blue{ color:$darkish-blue !important;}
+// .ice-blue{ color:$ice-blue !important;}
+// .red-pink{ color:$red-pink !important;}
+// .bluey-grey{ color:$bluey-grey !important;}
+// .orangey-yellow{ color:$orangey-yellow !important;}
+// .white{ color:$white !important;}
+// .gray-light{ color:$gray-light !important;}
+
+// .bg-pale-grey{ background-color: $pale-grey !important;}
+// .bg-brownish-grey{ background-color: $brownish-grey !important;}
+// .bg-light-gold{ background-color: $light-gold !important;}
+// .bg-cerulean-blue{ background-color: $cerulean-blue !important;}
+// .bg-denim-blue{ background-color: $denim-blue !important;}
+// .bg-black{ background-color: $black !important;}
+// .bg-powder-blue{ background-color: $powder-blue !important;}
+// .bg-darkish-blue{ background-color: $darkish-blue !important;}
+// .bg-ice-blue{ background-color: $ice-blue !important;}
+// .bg-red-pink{ background-color: $red-pink !important;}
+// .bg-bluey-grey{ background-color: $bluey-grey !important;}
+// .bg-orangey-yellow{ background-color: $orangey-yellow !important;}
+// .bg-white{ background-color: $white !important;}
+// .bg-gray-light{ background-color: $gray-light !important;}
+
+// .muli-reguler{font-family:$muli-reguler}
+// .muli-mulibold{ font-family: $muli-mulibold}
+// .muli-semibold{ font-family: $muli-semibold; font-weight: 600;}
+// .oduda-reguler{ font-family: $oduda-reguler}
+// .oduda-bold{ font-family: $oduda-bold}
+// .oduda-light{ font-family: $oduda-light}
+// .oduda-semibold{ font-family: $oduda-semibold}
+
+// /*Font size*/
+// .fn10{@include rem-fallback(font-size,10)}
+// .fn12{ @include rem-fallback(font-size,12)}
+// .fn14{ @include rem-fallback(font-size,14)}
+// .fn15{ @include rem-fallback(font-size,15)}
+// .fn16{ @include rem-fallback(font-size,16)}
+// .fn18{ @include rem-fallback(font-size,18)}
+// .fn20{ @include rem-fallback(font-size,20)}
+
+/*Dropdown menu*/
+// .dropdown{
+//   .nav-link{
+//     position: relative;
+//     padding-right:15px !important;
+//     @include rem-fallback(margin,0,10);
+//     &::after{
+//       font-family: 'Font Awesome 5 Free';
+//       font-weight: 900;
+//       content: "\f107";
+//       border:0;
+//       position: absolute;
+//       @include rem-fallback(top,7);
+//       @include rem-fallback(right,7);
+//     }
+//   }
+//   .dropdown-menu{
+//     border-radius: 0px;
+//     border: 0;
+//     box-shadow: 0px 0px 4px 0px #e0d3d3;
+//     @include rem-fallback(min-width,150);
+//     border-top: 3px solid #0070e4;  
+//   }
+// }
+
+/*hORIZONYTAL dIVIDER*/
+// hr {
+//   margin-top: 1rem;
+//   margin-bottom: 1rem;
+//   border: 0;
+//   border-top: 1px solid rgba(0, 0, 0, 0.1);
+// }
+/*End Horizontal Divider*/
+
+/*Page Title*/
+// .page-title{
+//   background-color: $darkish-blue;
+//       @include rem-fallback(padding,15,0);
+//   h2{
+//       @include rem-fallback(font-size,31);  
+//       text-transform: uppercase;
+//       line-height: 1.29;
+//       padding: 0;
+//       @include bp(xs-max){
+//         display: inline-block;
+//         width: 100%;
+//       }
+//   }
+//   @include bp(xs-max){
+//     text-align: center;
+//   }
+//   button{
+//     @include bp(xs-max){
+//       margin: auto;
+//       @include rem-fallback(margin-top,15);
+//     }
+//   }
+// }
+// .inner-container{
+//   max-width: 1200px;
+//   margin: auto;
+//   @include bp(xs-max){
+//     &.d-flex{
+//       flex-wrap: wrap;    
+//     }
+//   }
+// }
+
+// Typo
+* {
+  transition: 0.3s all linear;
+}
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  background-color: #d9ebf7;
+  font-family: $roboto;
+  @include rem-fallback(font-size, 14);
+  @include rem-fallback(line-height, 28);
+  font-weight: 400;
+}
+section{
+  @include rem-fallback(padding, 80 0); 
+  @include bp(xl-max){
+    @include rem-fallback(padding, 60 0); 
+  } 
+  @include bp(lg-max){
+    @include rem-fallback(padding, 50 0); 
+  } 
+}
+
+/* typoraphy */
+h1 {
+  font-family: $Proxima;
+  @include rem-fallback(font-size, 54);
+  @include rem-fallback(line-height, 64);  
+  @include bp(xl-max){
+    @include rem-fallback(font-size, 48);
+    @include rem-fallback(line-height, 58); 
+  }
+  @include bp(lg-max){
+    @include rem-fallback(font-size, 44);
+    @include rem-fallback(line-height, 52); 
+  }
+  @include bp(xxs-max){
+    @include rem-fallback(font-size, 32);
+  }
+}
+
+h2,
+h3 {
+  font-weight: bold;
+  @include rem-fallback(font-size,32);
+  @include rem-fallback(line-height,40);
+}
+h2{
+  @include bp(md-max){
+    @include rem-fallback(font-size, 28);
+  }
+}
+h3 {
+  @include rem-fallback(font-size,20);
+  @include rem-fallback(line-height,28);
+  @include bp(lg-max){
+    @include rem-fallback(font-size, 18);
+  }
+}
+
+.p1 {
+  @include rem-fallback(font-size,22);
+  @include rem-fallback(line-height,32);
+  font-weight: normal;
+}
+.p2 {
+  font-size: 18px !important;
+  line-height: 28px;
+  @include rem-fallback(font-size,18 !important);
+  @include rem-fallback(line-height,28);
+  font-weight: normal;
+  a {
+    color: #0c3761;
+    font-weight: 500;
+    &:hover{
+      color: #84b558;
+    }
+  }
+  @include bp(xl-max){
+    @include rem-fallback(font-size,16 !important);
+  }
+  @include bp(lg-max){
+    @include rem-fallback(font-size,14 !important);
+  }
+}
+
+.btn,
+.btn[type="button"],
+.form-content .btn {
+  font-size: 14px;
+  @include rem-fallback(font-size,14);
+  @include rem-fallback(line-height,28);
+  @include rem-fallback(border-radius,30);
+  @include rem-fallback(padding,10 30);
+  text-transform: uppercase;
+  font-weight: normal;
+  white-space: nowrap;
+  color: #fff;
+  background-color: #8fc069;
+  @include bp(xl-max){
+  @include rem-fallback(padding, 7 15);
+  }
+}
+.btn[type="button"] {
+  color: #fff !important;
+  background-color: #8fc069 !important;
+  opacity: 1;
+  &:hover {
+    opacity: 0.7;
+    border-color: #82b269;
+  }
+}
+.btn[type="button"]
+.form-content br {
+  display: none;
+}
+.btn:hover {
+  background-color: #7ba75a;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+.gp-website:focus {
+  color: #8fc069 !important;
+}
+
+.btn.btn-outline-primary {
+  color: #8fc069;
+  border-color: #8fc069;
+  background-color: transparent;
+}
+.btn-outline-primary:hover {
+  background-color: #8fc069;
+  color: #fff;
+  border-color: #8fc069;
+}
+
+.bgPrimary {
+  background-color: #0c3761 !important;
+}
+.textPrimary {
+  color: #0c3761;
+}
+.textSecondry {
+  color: #3cb4e7;
+}
+// Media
+.title-heading {
+  text-align: center;
+  h2{
+      color: #0C3761;
+      font-size: 32px;
+      @include rem-fallback(font-size,32 !important);
+      @include rem-fallback(padding-bottom,20);
+      @include rem-fallback(margin-bottom,30);
+      @include rem-fallback(line-height,38);
+      display: inline-block;
+      position: relative;
+      font-weight: 500;
+       @include bp(lg-max){
+        @include rem-fallback(font-size,30 !important);
+      }
+      .heading-border {
+        position: absolute;
+        bottom: 0;
+        @include rem-fallback(height,2);
+        @include rem-fallback(width,142);
+        background-color: #8FC069;
+        left: calc(50% - 71px);
+    }
+  }
+}
