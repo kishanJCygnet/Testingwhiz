@@ -69,7 +69,7 @@ function testingwhiz_setup()
         array(
             'header_menu' => __('Header Menu', 'testingwhiz'),
             'footer_menu' => __('Footer Menu', 'testingwhiz'),
-            'menu_above_search' => __('Menu Above Search', 'testingwhiz')
+            'user_manual' => __('User Manual', 'testingwhiz')
         )
     );
     //Add different image sizes
