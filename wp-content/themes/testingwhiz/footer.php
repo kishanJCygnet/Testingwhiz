@@ -121,12 +121,11 @@
 	<?php endif; ?>
 	
    <!-- js -->
-    <script src="<?php echo THEME_PATH; ?>js/jquery-3.6.0.min.js"></script>
-    <script src="<?php echo THEME_PATH; ?>js/bootstrap.bundle.js"></script>   
-	<script src="<?php echo THEME_PATH; ?>js/owl.carousel.min.js"></script>
-	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>css/owl.carousel.min.css">
-	<script src="<?php echo THEME_PATH; ?>js/wow.min.js"></script>
-	<script src="<?php echo THEME_PATH; ?>js/main.js"></script>	
+    <script src="<?php echo THEME_PATH; ?>dist/js/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo THEME_PATH; ?>dist/js/bootstrap.bundle.js"></script>   
+	<script src="<?php echo THEME_PATH; ?>dist/js/owl.carousel.min.js"></script>	
+	<script src="<?php echo THEME_PATH; ?>dist/js/wow.min.js"></script>
+	<script src="<?php echo THEME_PATH; ?>dist/js/main.js"></script>	
 	<script type='text/javascript' id='cygnet-global-js-extra'>
 	/* <![CDATA[ */
 	var templateUrl = '<?= site_url(); ?>'+'\/wp-admin\/admin-ajax.php';

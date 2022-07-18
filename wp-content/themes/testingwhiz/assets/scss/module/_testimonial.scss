@@ -1,0 +1,135 @@
+//*********************** testimonial-section *********************************
+.testimonial-section,
+.light-bg {
+    background-color: #fafafa !important;
+}
+
+.testimonial-section {
+    .testimonial {
+        @include rem-fallback(width, 1090);
+        @include rem-fallback(margin-top, 40);
+        max-width: 100%;
+        margin: auto;
+        @include bp(md-max) {
+            width: 100%;
+        }
+    }
+    .testimonial-content {
+        align-items: center;
+        @include bp(md-max) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .client-details {
+            @include rem-fallback(min-width, 530);
+            @include rem-fallback(height, 530);
+            @include rem-fallback(min-height, 530);
+            max-width: 100%;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+            border-radius: 50%;
+            @include rem-fallback(margin-left, 5);
+            @include rem-fallback(margin-bottom, 10);
+            @include rem-fallback(margin-top, 5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include bp(md-max) {
+                @include rem-fallback(min-width, 300);
+                @include rem-fallback(height, 300);
+                @include rem-fallback(width, 300);
+                @include rem-fallback(min-height, 300);
+                @include rem-fallback(padding, 25);
+                @include rem-fallback(margin-bottom, 15);              
+            }
+            img {
+                @include rem-fallback(width, 300);
+            }
+        }
+        .short-decoration {           
+            @include rem-fallback(padding-left, 100);
+            @include bp(md-max) {
+                padding-left: 0;
+                text-align: center;
+            }
+            .p1 {
+                font-weight: 600;
+                @include rem-fallback(margin-bottom, 2);
+            }
+            p {
+                @include rem-fallback(margin-top, 45);
+                position: relative;
+                @include bp(md-max) {
+                   @include rem-fallback(margin-top, 10);
+                   @include rem-fallback(padding-left, 40);
+                }
+                &::before {
+                    content: "";
+                    background-image: url("images/quote.png");
+                    position: absolute;
+                    top: 0;
+                    @include rem-fallback(width, 33);
+                    @include rem-fallback(height, 33);
+                    background-repeat: no-repeat;
+                    @include rem-fallback(left, -45);
+                    @include bp(md-max) {                  
+                        left: 0;
+                    }
+                   
+                }
+            }
+        }
+    }
+   
+    .owl-nav {
+        display: inline-block;
+        background-color: #8ebf69;
+        @include rem-fallback(padding, 15 30);
+        @include rem-fallback(border-radius, 44);
+        @include rem-fallback(bottom, 50);
+        position: absolute;
+        left: calc(50% - 174px);
+        @include bp(md-max) {
+         position: relative;
+        bottom: 0px;
+        left: calc(50% - 83px);
+        }
+        button {
+            @include rem-fallback(margin,0 5);
+            img {
+                
+                @include rem-fallback(width, 43);
+                opacity: 1;
+                margin-right: 0;
+                transition: 0.3s all linear;
+            }
+        }
+        .owl-prev {
+            &.disabled {
+                img {
+                    @include rem-fallback(width, 22);
+                    @include rem-fallback(margin-right, 21);
+                     opacity: 0.47;
+                }
+            }
+        }
+        .owl-next {
+            &.disabled {
+                @include rem-fallback(width, 22);
+                @include rem-fallback(margin-right, 21);
+                opacity: 0.47;
+            }
+            img {
+                transform: rotate(180deg);
+                @include rem-fallback(width, 43);
+                opacity: 1;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+// ************************End testimonial-section*************************
+
+
