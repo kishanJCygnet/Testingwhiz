@@ -749,6 +749,7 @@ if ( ! class_exists( 'Email_Subscribers' ) ) {
 				'lite/includes/services/class-es-service-spam-score-check.php',
 				'lite/includes/services/class-es-service-handle-cron-data.php',
 				'lite/includes/services/class-es-service-process-email-content.php',
+				'lite/includes/services/class-es-email-auth-header-verify.php',
 
 				// Classes
 				'lite/includes/classes/class-es-list-table.php',

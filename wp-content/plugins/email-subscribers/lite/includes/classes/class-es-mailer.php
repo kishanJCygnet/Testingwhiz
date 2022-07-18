@@ -650,7 +650,7 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 			}
 
 			$total_recipients = count( $emails );
-			
+
 			$can_use_batch_api = $total_recipients > 1 && $this->mailer->support_batch_sending;
 			$can_use_batch_api = apply_filters( 'ig_es_can_use_batch_api_' . $this->mailer->slug, $can_use_batch_api, $total_recipients, $sender_data );
 
@@ -757,7 +757,7 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 				$contact_id = ! empty( $this->email_id_map[ $email ] ) ? $this->email_id_map[ $email ] : 0;
 
 				$merge_tags['contact_id'] = $contact_id;
-				
+
 				$merge_tags = array_merge( $merge_tags, $this->get_contact_merge_tags( $contact_id ) );
 
 				$this->link_data = array(
@@ -978,7 +978,7 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 			// Can Track Email Open? Add pixel.
 			$email_tracking_image = $this->get_tracking_pixel();
 
-			
+
 			if ( false === strpos( $message->body, '<html' ) ) {
 				$message->body = $message->body . $unsubscribe_message . $email_tracking_image;
 			} else {
@@ -1567,7 +1567,7 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 		public function get_tracking_pixel( $link_data = array() ) {
 
 			$tracking_image = '';
-			
+
 			if ( $this->can_track_open() ) {
 
 				if ( empty( $link_data ) ) {
@@ -1682,17 +1682,9 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 		 * @since 4.3.5
 		 */
 		public function get_total_emails_send_now( $max_send = 100000 ) {
-
-			$current_date = ig_es_get_current_date();
-			$current_hour = ig_es_get_current_hour();
-
+			
 			// Get total emails sent in this hour
-			$email_sent_data = ES_Common::get_ig_option( 'email_sent_data', array() );
-
-			$total_emails_sent = 0;
-			if ( is_array( $email_sent_data ) && ! empty( $email_sent_data[ $current_date ] ) && ! empty( $email_sent_data[ $current_date ][ $current_hour ] ) ) {
-				$total_emails_sent = $email_sent_data[ $current_date ][ $current_hour ];
-			}
+			$total_emails_sent = ES_Common::count_sent_emails();
 
 			// Get hourly limit
 			$can_total_emails_send_in_hour = ES_Common::get_ig_option( 'hourly_email_send_limit', 300 );

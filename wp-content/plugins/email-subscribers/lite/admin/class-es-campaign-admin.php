@@ -872,6 +872,10 @@ if ( ! class_exists( 'ES_Campaign_Admin' ) ) {
 			$list_id       = ! empty( $campaign_data['list_ids'] ) ? $campaign_data['list_ids'] : '';
 			$template_id   = ! empty( $campaign_data['template_id'] ) ? $campaign_data['template_id'] : '';
 
+			if ( is_null( $campaign_id ) ) {
+				unset( $campaign_data['id'] );
+			}
+
 			$campaign_data['base_template_id'] = $template_id;
 			$campaign_data['list_ids']         = $list_id;
 			$campaign_data['status']           = ! empty( $campaign_data['status'] ) ? (int) $campaign_data['status'] : 0;

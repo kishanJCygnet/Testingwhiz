@@ -46,7 +46,31 @@ class ES_Common {
 
 
 	/**
+	 * Count sent emails
+	 *
+	 * @return int $total_emails_sent
+	 *
+	 * @since 5.3.18
+	 */
+	public static function count_sent_emails() {
+		$current_date = ig_es_get_current_date();
+		$current_hour = ig_es_get_current_hour();
+
+		// Get total emails sent in this hour
+		$email_sent_data = self::get_ig_option( 'email_sent_data', array() );
+
+		$total_emails_sent = 0;
+		if ( is_array( $email_sent_data ) && ! empty( $email_sent_data[ $current_date ] ) && ! empty( $email_sent_data[ $current_date ][ $current_hour ] ) ) {
+			$total_emails_sent = $email_sent_data[ $current_date ][ $current_hour ];
+		}
+
+		return $total_emails_sent;
+	}
+
+
+	/**
 	 * Callback to replace keywords
+	 *
 	 * @param $keyword
 	 * @param $search_and_replace
 	 *
@@ -94,6 +118,7 @@ class ES_Common {
 
 	/**
 	 * Decode the html quotes
+	 *
 	 * @param $string
 	 *
 	 * @return string
@@ -718,7 +743,7 @@ class ES_Common {
 	 * @since 4.0.0
 	 */
 	public static function prepare_custom_post_type_checkbox( $custom_post_types ) {
-		$args  = array(
+		$args       = array(
 			'public'              => true,
 			'exclude_from_search' => false,
 			'_builtin'            => false,
@@ -2729,6 +2754,30 @@ class ES_Common {
 		$engagement_score_html = ( is_numeric( $engagement_score ) ? '<div class="es-engagement-score ' . $score_class . '">' . $score_text . '</div>' : '-' );
 
 		return $engagement_score_html;
+	}
+
+	public static function get_email_verify_mailbox_user() {
+		$username = get_option( 'ig_es_test_mailbox_user', '' );
+		if ( !empty( $username) ) {
+			$username = 'spam_check_' . $username;
+		}
+		return( $username );
+	}
+
+	public static function get_ig_es_mailbox_domain() {
+		$domain = 'box.icegram.com';
+		return( $domain );
+	}
+
+	public static function get_email_verify_test_email() {
+		$username = self::get_email_verify_mailbox_user();
+		$domain   = self::get_ig_es_mailbox_domain();
+
+		if ( !empty( $username) ) {
+			$email = $username . '@' . $domain;
+			return( $email );
+		}
+		return '';
 	}
 
 }

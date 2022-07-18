@@ -74,7 +74,7 @@
 				<?php $o=1; 
 				while (have_rows('product_features')) : the_row(); 
 				$dynamicinnerid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>
-					<section id="<?php echo $dynamicinnerid; ?>">
+				<section id="<?php echo $dynamicinnerid; ?>">
 					<div class="container">
 						<div>
 							<div class="two-colum-layout cfr-tw-col-item left-title">	
@@ -150,14 +150,39 @@
 		</section>
 	<?php endif; 
 	/* End Product Features Sections */
+	
+	
+	/* Top Tab Section block */
+	if (have_rows('top_tab_content')) :  ?>
+		<div class="top-tab <?php echo the_field('top_tab_section_class'); ?>"> 
+			<div class="top-tab-label"><?php echo the_field('tab_label'); ?> :</div>
+			<div class="top-tab-main-section">
+				<?php while (have_rows('top_tab_content')) : the_row(); ?>
+					<?php if (get_sub_field('tab_title')){ ?>
+						<div class="top-tab-inner <?php if(get_sub_field('tab_position') == 'sub'){ ?>tab-sub-class<?php } ?>">
+							<a href="#<?php echo the_sub_field('tab_id'); ?>"><?php echo the_sub_field('tab_title'); ?></a>
+						</div>
+					<?php } ?>
+				<?php endwhile;	 ?>
+			</div>
+		</div>
+	<?php endif;
+	/* End Top Tab Section block */	
+	
 
 	/* Manage content block */
 	if (have_rows('manage_content')) :
 		while (have_rows('manage_content')) : the_row(); 
+			if (get_sub_field('top_tab_id')){
+				//$slug = preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '', get_sub_field('top_tab_id')));
+				$slugid = 'id="'.get_sub_field('top_tab_id').'"';
+			} else {
+				$slugid = '';
+			}
 			
 			/* Default Content Start */
 			if (get_row_layout() == 'default_content') : ?>
-				<section class="curved-section default-content <?php echo the_sub_field('default_section_custom_class'); ?>">
+				<section class="curved-section default-content <?php echo the_sub_field('default_section_custom_class'); ?>" <?php echo $slugid; ?>>
 					 <?php if (get_sub_field('default_page_content')) : ?>
 						 <div class="container section-container-padding">
 						 <div class="title-heading">
@@ -183,7 +208,7 @@
 			
 			/* Icon Box Start */
 			if (get_row_layout() == 'icon_box') : ?>
-				<section class="<?php echo the_sub_field('icon_box_custom_class'); ?>">
+				<section class="<?php echo the_sub_field('icon_box_custom_class'); ?>" <?php echo $slugid; ?>>
 					<div class="container-fluid">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
@@ -242,14 +267,16 @@
 			/* Icon Box end */
 			
 			/* Testimonial Start */
-			if (get_row_layout() == 'testimonials') : 
-				echo do_shortcode('[testimonials]');
-		    endif; 
+			if (get_row_layout() == 'testimonials') :  ?>
+				<div <?php echo $slugid; ?>>
+					<?php echo do_shortcode('[testimonials]');  ?>
+				</div>
+		    <?php endif; 
 			/* Testimonial End */
 			
 			/* Client Logo section Start */ 
 			if (get_row_layout() == 'client_logos') : ?>
-				<section class="<?php echo the_sub_field('client_logos_section_custom_class'); ?>">
+				<section class="<?php echo the_sub_field('client_logos_section_custom_class'); ?>" <?php echo $slugid; ?>>
 					<div class="container">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
@@ -314,15 +341,19 @@
 			/* Client Logo section End */
 			
 			/* Insights Start */
-			if (get_row_layout() == 'insights') : 
-				echo do_shortcode('[insights]');
-		    endif; 
+			if (get_row_layout() == 'insights') :  ?>
+				<div <?php echo $slugid; ?>>
+					<?php echo do_shortcode('[insights]'); ?>
+				</div>
+		    <?php endif; 
 			/* Insights End */
 			
 			/* Case Studies Start */
-			if (get_row_layout() == 'case_studies') : 
-				echo do_shortcode('[case_studies]');
-		    endif; 
+			if (get_row_layout() == 'case_studies') : ?>
+				<div <?php echo $slugid; ?>>
+					<?php echo do_shortcode('[case_studies]');  ?>
+				</div>
+		    <?php endif; 
 			/* Case Studies End */
 			
 			/* Two Column Layout Start */
@@ -333,7 +364,7 @@
 					$clsl = '';
 				}
 			?>
-				<section class="two-colum-layout <?php echo $clsl; ?> <?php echo the_sub_field('two_column_section_custom_class'); ?>">
+				<section class="two-colum-layout <?php echo $clsl; ?> <?php echo the_sub_field('two_column_section_custom_class'); ?>" <?php echo $slugid; ?>>
 					<div class="container">
 						<div class="title-heading">
 						<?php if (get_sub_field('title')){ ?>
@@ -378,7 +409,7 @@
 			
 			/* Zig Zag Section Start */
 			if (get_row_layout() == 'zig_zag_section') : ?>
-				<section class="why-cygnature <?php echo the_sub_field('zig_zag_section_custom_class'); ?>">
+				<section class="why-cygnature <?php echo the_sub_field('zig_zag_section_custom_class'); ?>" <?php echo $slugid; ?>>
 					<div class="container">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
@@ -425,7 +456,7 @@
 			/* Contact Us Button Start */
 			if (get_row_layout() == 'contact_us_button') : ?>
 				<?php if (get_sub_field('contact_us')){ ?>
-					<section class="CTA-btn text-center bg-white pb-5 <?php echo the_sub_field('contact_us_button_section_custom_class'); ?>">
+					<section class="CTA-btn text-center bg-white pb-5 <?php echo the_sub_field('contact_us_button_section_custom_class'); ?>" <?php echo $slugid; ?>>
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
@@ -441,7 +472,7 @@
 			/* Three Column Layout Start */
 			if (get_row_layout() == 'three_column_layout') :
 			?>
-				<section class="esignature-solution <?php echo the_sub_field('three_column_section_custom_class'); ?>">
+				<section class="esignature-solution <?php echo the_sub_field('three_column_section_custom_class'); ?>" <?php echo $slugid; ?>>
 					<div class="container">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
@@ -490,7 +521,7 @@
 			
 			/* Background Image with Content section Start */
 			if (get_row_layout() == 'background_image_with_content') : 	?>
-				<section class="background_image_with_content <?php echo the_sub_field('background_image_with_content_custom_class'); ?>" <?php if (get_sub_field('background_image')): ?> style="background-image:url('<?php echo get_sub_field('background_image'); ?>')" <?php endif; ?> >
+				<section class="background_image_with_content <?php echo the_sub_field('background_image_with_content_custom_class'); ?>" <?php if (get_sub_field('background_image')): ?> style="background-image:url('<?php echo get_sub_field('background_image'); ?>')" <?php endif; ?> <?php echo $slugid; ?>>
 					<div class="container">						
 						<div class="row">
 							<div class="col-md-12">
@@ -519,7 +550,7 @@
 				
 			/* Icon Box Slider Start */
 			if (get_row_layout() == 'icon_box_slider') : ?>
-				<section class="<?php echo the_sub_field('icon_box_custom_class'); ?>">
+				<section class="<?php echo the_sub_field('icon_box_custom_class'); ?>" <?php echo $slugid; ?>>
 					<div class="container-fluid">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
@@ -614,7 +645,7 @@
 			
 			/* Accordion code start */  
 			if (get_row_layout() == 'accordion') : ?> 
-			<section class="accordion_section faq-accordian">
+			<section class="accordion_section faq-accordian" <?php echo $slugid; ?>>
 				<div class="container">
 					<div class="title-heading">
 						<?php if (get_sub_field('accordion_image')){ ?>
@@ -668,7 +699,7 @@
 			
 			/* Video Section Start */
 			if (get_row_layout() == 'video_section') : ?>
-				<section class="videos-section <?php echo the_sub_field('videos_custom_class'); ?>">
+				<section class="videos-section <?php echo the_sub_field('videos_custom_class'); ?>" <?php echo $slugid; ?>>
 					<div class="container">						
 						<?php if (have_rows('videos')) : ?>
 						<div class="zick-zack-content pt-4">
@@ -731,6 +762,76 @@
 				</section>
 		    <?php endif; 
 			/* Video Section End */
+			
+			/* Alert box section Start */
+			if (get_row_layout() == 'alert_box') : 	?>
+				<section class="alert_box <?php echo the_sub_field('alert_box_custom_class'); ?>" <?php echo $slugid; ?>>
+					<div class="container">						
+						<div class="row">
+							<div class="col-md-12">
+								<?php if (get_sub_field('alert_box_description')){ ?>
+									<div class="alert <?php echo the_sub_field('alert_box_options'); ?> d-flex align-items-center" role="alert">
+										<?php if (get_sub_field('alert_box_options') == 'alert-primary'){ ?>
+											<i class="fas fa-info-circle"></i>
+										<?php } else if(get_sub_field('alert_box_options') == 'alert-success') { ?>	
+											<i class="fas fa-check-circle"></i>
+										<?php } else if(get_sub_field('alert_box_options') == 'alert-warning' || get_sub_field('alert_box_options') == 'alert-danger') { ?>	
+											<i class="fas fa-exclamation-triangle"></i>
+										<?php } ?>
+										<div><?php echo the_sub_field('alert_box_description'); ?></div>
+									</div>
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+				</section>
+			<?php endif; 
+			/* Alert box section End */
+			
+			/* Table section Start */
+			if (get_row_layout() == 'table_section') :
+			?>
+				<section class="table-section <?php echo the_sub_field('table_custom_class'); ?>" <?php echo $slugid; ?>>
+					<div class="container">
+						<div class="title-heading">
+							<?php if (get_sub_field('table_main_title')){ ?>
+								<h2><?php echo the_sub_field('table_main_title'); ?>
+									<span class="heading-border"></span>
+								</h2>
+							<?php } ?>
+							<?php if (get_sub_field('table_sub_title')){ ?>
+								<h3><?php echo the_sub_field('table_sub_title'); ?></h3>
+							<?php } ?>
+						</div>
+						<?php if (have_rows('table_rows')) : ?>
+							<div class="row">
+								<table class="table">
+									<?php while (have_rows('table_rows')) : the_row();	?>								
+										<tr class="<?php echo the_sub_field('row_custom_class'); ?>">
+											<td>
+												<?php if (get_sub_field('first_column')){
+													echo the_sub_field('first_column'); 
+												} ?>
+											</td>
+											<td>
+												<?php if (get_sub_field('second_column')){
+													echo the_sub_field('second_column'); 
+												} ?>
+											</td>
+										</tr>								
+									<?php endwhile; ?>
+								</table>
+							</div>
+						<?php endif; ?>
+						<div class="table-bottom-text">
+							<?php if (get_sub_field('table_bottom_text')){ ?>
+								<h3><?php echo the_sub_field('table_bottom_text'); ?></h3>
+							<?php } ?>
+						</div>
+					</div>
+				</section>
+		    <?php endif; 
+			/* Table section End */
 			
 		endwhile;
 	endif; 	

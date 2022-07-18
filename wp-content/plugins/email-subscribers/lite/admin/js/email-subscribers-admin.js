@@ -1153,6 +1153,122 @@
 				}
 			});
 
+			// Check email authentication headers
+			jQuery('#ig-es-verify-auth-headers').click(function(e){
+				e.preventDefault();
+
+				let err_msg = 'SMTP Error : Unable to send test email';
+				var params = {
+					type:'POST',
+					url:ajaxurl,
+					data:{
+						action:'es_send_auth_test_email',
+						security:ig_es_js_data.security,
+					},
+					dataType:'json',
+					beforeSend:function(){
+						jQuery('#ig-es-verify-auth-headers').next('#spinner-image').show();
+					},
+					success:function(res){
+
+						if( 'SUCCESS' === res['status'] ){
+							let time_delay = 5000;
+			
+							setTimeout(function(){
+								getEmailAuthHeaders();
+							},time_delay);
+						}
+						else{
+							jQuery('#ig-es-verify-auth-headers').next('#spinner-image').hide();
+							jQuery('#ig-es-verify-auth-message').addClass('text-red-500').html(err_msg);
+						}
+					},
+					error:function(err){
+						jQuery('#ig-es-verify-auth-headers').next('#spinner-image').hide();
+						jQuery('#ig-es-verify-auth-message').addClass('text-red-500').html(err_msg);
+					},
+				}
+				jQuery.ajax(params);
+
+			});
+
+			function getEmailAuthHeaders(){
+
+				let err_msg = 'Server Busy : Please try again later';
+
+				var params = {
+					type:'POST',
+					url:ajaxurl,
+					data:{
+						action:'es_get_auth_headers',
+						security:ig_es_js_data.security,
+					},
+					dataType:'json',
+					success:function(res){
+						let headerData = [];
+						let table_elem = jQuery('#ig-es-settings-authentication-table');
+						try {
+							headerData = JSON.parse(res.data);
+
+							if( 'undefined' !== table_elem && Array.isArray(headerData) && headerData.length > 0 ){
+								populateTableData( table_elem, headerData, false );
+								jQuery('#ig-es-verify-auth-message').addClass('text-green-500').html('Headers verified successfully');	
+							}
+							else{
+								jQuery('#ig-es-verify-auth-message').addClass('text-red-500').html(err_msg);	
+							}
+						}
+						catch(err){
+							jQuery('#ig-es-verify-auth-message').addClass('text-red-500').html(err_msg);	
+						}
+					},
+					error:function(err){
+						jQuery('#ig-es-verify-auth-message').addClass('text-red-500').html(err_msg);	
+					},
+					complete:function(){
+						jQuery('#ig-es-verify-auth-headers').next('#spinner-image').hide();
+					}
+				}
+				jQuery.ajax(params);
+
+			}
+
+			function populateTableData(table_element, data_array,mapByIndex){
+				let table_row;
+				let row_id,cell_value='';
+				let row_data_keys={};
+				let table_body = table_element.find('tbody');
+
+				for (let index = 0; index < data_array.length; index++) {
+					row_id = (mapByIndex) ? data_array[index] : data_array[index]['key'];
+					table_row = table_body.find('tr[data-row-id="'+row_id+'"]');
+
+					row_data_keys = Object.keys(data_array[index]); 
+			
+					row_data_keys.forEach(key => {
+						cell_value = data_array[index][key];
+
+						if( cell_value.length > 30){
+							cell_value = cell_value.slice(0,30) + '...';
+						}
+						table_row.find('td[data-cell-id="'+row_id+"-"+key+'"]').html(cell_value );
+					});
+				}
+			}
+
+			
+			jQuery(document).on( 'click', '#es_check_auth_header', function(e){
+				window.location.href = '?page=es_settings&btn=check_auth_header#tabs-email_sending';
+				jQuery('html, body').animate({
+					scrollTop: jQuery("#ig-es-settings-authentication-table").offset().top
+				}, 2000);
+			});
+			
+			if(window.location.href.indexOf('page=es_settings&btn=check_auth_header#tabs-email_sending') !== -1){
+				jQuery('html, body').animate({
+					scrollTop: jQuery("#ig-es-settings-authentication-table").offset().top
+				}, 2000);
+			}
 			// Check spam score
 			jQuery(document).on('click', '.es_spam' , function(e) {
 				e.preventDefault();

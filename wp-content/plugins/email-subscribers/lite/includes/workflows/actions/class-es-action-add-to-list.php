@@ -90,7 +90,7 @@ if ( ! class_exists( 'ES_Action_Add_To_List' ) ) {
 		 * @param int   $list_id List id to add the contact's data.
 		 * @param array $data Contact's data.
 		 */
-		public function add_contact( $list_id = 0, $data = array(), $user_list_status ) {
+		public function add_contact( $list_id = 0, $data = array(), $user_list_status = '' ) {
 
 			// Don't know where to add contact? please find it first.
 			if ( empty( $list_id ) ) {
@@ -137,7 +137,7 @@ if ( ! class_exists( 'ES_Action_Add_To_List' ) ) {
 				'email'      			 => $email,
 				'source'     			 => $source,
 				'status'     			 => $status,
-				'user_list_status' => $user_list_status,
+				'user_list_status' 		 => $user_list_status,
 				'hash'       			 => $guid,
 				'created_at' 			 => ig_get_current_date_time(),
 				'wp_user_id' 			 => $wp_user_id,

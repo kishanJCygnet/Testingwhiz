@@ -418,6 +418,8 @@ class ES_Admin_Settings {
 
 		$test_email = ES_Common::fetch_admin_email();
 
+		$total_emails_sent = ES_Common::count_sent_emails();
+
 		$email_sending_settings = array(
 			'ig_es_cronurl'                 => array(
 				'type'         => 'text',
@@ -455,7 +457,7 @@ class ES_Admin_Settings {
 				'default'      => 50,
 				'id'           => 'ig_es_hourly_email_send_limit',
 				'name'         => __( 'Maximum emails to send in an hour', 'email-subscribers' ),
-				'desc'         => __( 'Total emails your host can send in an hour.', 'email-subscribers' ),
+				'desc'         => __( 'Total emails your host can send in an hour.<br>Total emails sent in current hour: <b>' . $total_emails_sent . '</b>' , 'email-subscribers' ),
 			),
 
 			'ig_es_max_email_send_at_once'  => array(
