@@ -74,7 +74,7 @@
 				<?php $o=1; 
 				while (have_rows('product_features')) : the_row(); 
 				$dynamicinnerid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>
-					<section id="<?php echo $dynamicinnerid; ?>">
+				<section id="<?php echo $dynamicinnerid; ?>">
 					<div class="container">
 						<div>
 							<div class="two-colum-layout cfr-tw-col-item left-title">	
@@ -153,20 +153,20 @@
 	
 	
 	/* Top Tab Section block */
-	/*if (have_rows('top_tab_content')) :  ?>
+	if (have_rows('top_tab_content')) :  ?>
 		<div class="top-tab <?php echo the_field('top_tab_section_class'); ?>"> 
 			<div class="top-tab-label"><?php echo the_field('tab_label'); ?> :</div>
 			<div class="top-tab-main-section">
 				<?php while (have_rows('top_tab_content')) : the_row(); ?>
 					<?php if (get_sub_field('tab_title')){ ?>
-						<div class="top-tab-inner">
+						<div class="top-tab-inner <?php if(get_sub_field('tab_position') == 'sub'){ ?>tab-sub-class<?php } ?>">
 							<a href="#<?php echo the_sub_field('tab_id'); ?>"><?php echo the_sub_field('tab_title'); ?></a>
 						</div>
 					<?php } ?>
 				<?php endwhile;	 ?>
 			</div>
-		</div>		
-	<?php endif; */
+		</div>
+	<?php endif;
 	/* End Top Tab Section block */	
 	
 
