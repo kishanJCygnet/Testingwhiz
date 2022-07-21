@@ -132,7 +132,7 @@
 	var ajaxPath = {"ajaxurl":templateUrl};
 	/* ]]> */
 	</script>
-	<script src="<?php echo THEME_PATH; ?>js/scripts.js"></script>
+	<script src="<?php echo THEME_PATH; ?>assets/dist/js/scripts.js"></script>
     <!-- End js -->
 	<script>
 	jQuery(document).ready(function () {

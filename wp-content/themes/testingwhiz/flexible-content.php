@@ -56,82 +56,84 @@
 	if (have_rows('product_features')) : ?>
 	<section class="py-0">
 		<div class="product-feature-tab">
-			<ul>
-				<?php while (have_rows('product_features')) : the_row(); 
-				$dynamicid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>				
-						<li>
-							<a href="#<?php echo $dynamicid; ?>"><?php echo the_sub_field('tab_title'); ?></a>
-						</li>
-						<?php endwhile; ?>
-					</ul>
-				<span class="ac-fow"><i class="fas fa-angle-left"></i></span>
-				<span class="ac-back"><i class="fas fa-angle-right"></i></span>
+			<ul class="nav nav-tabs">
+				<?php $cnt = 1;
+				while (have_rows('product_features')) : the_row(); 
+					$dynamicid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>				
+					<li class="nav-item">
+						<a href="#<?php echo $dynamicid; ?>" class="nav-link <?php if($cnt==1){ ?>active<?php } ?>" data-bs-toggle="tab"><?php echo the_sub_field('tab_title'); ?></a>
+					</li>
+				<?php $cnt++;
+				endwhile; ?>
+			</ul>
+			<span class="ac-fow"><i class="fas fa-angle-left"></i></span>
+			<span class="ac-back"><i class="fas fa-angle-right"></i></span>
 		</div>
-		<div class="product-feature">		
-				<?php $o=1; 
+		<div class="product-feature">	
+			<div class="tab-content">
+				<?php $o=1; $tabcnt = 1;
 				while (have_rows('product_features')) : the_row(); 
 				$dynamicinnerid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>
-				<section id="<?php echo $dynamicinnerid; ?>">
+				<section id="<?php echo $dynamicinnerid; ?>" class="tab-pane <?php if($tabcnt==1){ ?>show active<?php } ?>">
 					<div class="container">
-						<div>
-							<div class="two-colum-layout cfr-tw-col-item left-title">	
+						<div class="two-colum-layout cfr-tw-col-item left-title">	
 							<div class="two-colum-content">
-									<div class="col-left">								
-										<div class="d-flex align-items-center h-100 ">
-											<div>
-												<?php if (get_sub_field('title')){ ?>
-												<div class="content-title-heading">
-													<h2 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('title'); ?>
-														<span class="heading-border"></span>
-													</h2>
-												</div>
-												<?php } ?>						   
-												<?php if (get_sub_field('description')){ ?>
-													<div class="description p2 wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('description'); ?></div>
-												<?php } ?>
+								<div class="col-left">								
+									<div class="d-flex align-items-center h-100 ">
+										<div>
+											<?php if (get_sub_field('title')){ ?>
+											<div class="content-title-heading">
+												<h2 class=""><?php echo the_sub_field('title'); ?>
+													<span class="heading-border"></span>
+												</h2>
 											</div>
+											<?php } ?>						   
+											<?php if (get_sub_field('description')){ ?>
+												<div class="description p2"><?php echo the_sub_field('description'); ?></div>
+											<?php } ?>
 										</div>
-									</div>	
-									<div class="col-right">
-										<?php if (get_sub_field('image')){ ?>
-										<div class="icon">
-											<img src="<?php echo the_sub_field('image'); ?>" alt="<?php echo the_sub_field('title'); ?>" class=" wow fadeIn" data-wow-delay="0.9s" />
-										</div>
-										<?php } ?>
 									</div>
+								</div>	
+								<div class="col-right">
+									<?php if (get_sub_field('image')){ ?>
+									<div class="icon">
+										<img src="<?php echo the_sub_field('image'); ?>" alt="<?php echo the_sub_field('title'); ?>" class="" />
+									</div>
+									<?php } ?>
+								</div>
 							</div>		
 						</div>				
 						<?php if (have_rows('features')) :  ?>
 							<div class="accordion" id="accordionExample<?php echo $o; ?>">								
-									<?php $m=1;
-									while (have_rows('features')) : the_row(); ?>
-										<div class="accordion-content-item">
-											<div class="accordion-item">
-												<h2 class="accordion-header" id="heading<?php echo $o.'_'.$m; ?>">
-												  <!--<button class="accordion-button <?php if($m != 1){ ?> collapsed <?php } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $o.'_'.$m; ?>" aria-expanded="true" aria-controls="collapse<?php echo $o.'_'.$m; ?>">-->
-												  <button class="accordion-button <?php if($m == 1 && $o == 1){ echo ''; } else { ?> collapsed <?php } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $o.'_'.$m; ?>" aria-expanded="true" aria-controls="collapse<?php echo $o.'_'.$m; ?>">
-													<?php if (get_sub_field('feature_title')){ ?>
-														<span><?php echo the_sub_field('feature_title'); ?></span>
-													<?php } ?>	
-												  </button>
-												</h2>
-												<div id="collapse<?php echo $o.'_'.$m; ?>" class="accordion-collapse collapse <?php if($m == 1 && $o == 1){ ?> show <?php } ?>" aria-labelledby="heading<?php echo $o.'_'.$m; ?>" data-bs-parent="#accordionExample<?php echo $o; ?>">
-												  <div class="accordion-body">
-													<?php if (get_sub_field('feature_description')){ ?>
-														<div class="description p2"><?php echo the_sub_field('feature_description'); ?></div>
-													<?php } ?>
-												  </div>
-												</div>
+								<?php $m=1;
+								while (have_rows('features')) : the_row(); ?>
+									<div class="accordion-content-item">
+										<div class="accordion-item">
+											<h2 class="accordion-header" id="heading<?php echo $o.'_'.$m; ?>">
+											  <!--<button class="accordion-button <?php if($m != 1){ ?> collapsed <?php } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $o.'_'.$m; ?>" aria-expanded="true" aria-controls="collapse<?php echo $o.'_'.$m; ?>">-->
+											  <button class="accordion-button <?php if($m == 1 && $o == 1){ echo ''; } else { ?> collapsed <?php } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $o.'_'.$m; ?>" aria-expanded="true" aria-controls="collapse<?php echo $o.'_'.$m; ?>">
+												<?php if (get_sub_field('feature_title')){ ?>
+													<span><?php echo the_sub_field('feature_title'); ?></span>
+												<?php } ?>	
+											  </button>
+											</h2>
+											<div id="collapse<?php echo $o.'_'.$m; ?>" class="accordion-collapse collapse <?php if($m == 1 && $o == 1){ ?> show <?php } ?>" aria-labelledby="heading<?php echo $o.'_'.$m; ?>" data-bs-parent="#accordionExample<?php echo $o; ?>">
+											  <div class="accordion-body">
+												<?php if (get_sub_field('feature_description')){ ?>
+													<div class="description p2"><?php echo the_sub_field('feature_description'); ?></div>
+												<?php } ?>
+											  </div>
 											</div>
-											<?php /*if (get_sub_field('feature_title')){ ?>
-												<span><?php echo the_sub_field('feature_title'); ?></span>
-											<?php } ?>						   
-											<?php if (get_sub_field('feature_description')){ ?>
-												<div class="description p2"><?php echo the_sub_field('feature_description'); ?></div>
-											<?php } */ ?>
 										</div>
-									<?php $m++; 
-									endwhile; ?>
+										<?php /*if (get_sub_field('feature_title')){ ?>
+											<span><?php echo the_sub_field('feature_title'); ?></span>
+										<?php } ?>						   
+										<?php if (get_sub_field('feature_description')){ ?>
+											<div class="description p2"><?php echo the_sub_field('feature_description'); ?></div>
+										<?php } */ ?>
+									</div>
+								<?php $m++; 
+								endwhile; ?>
 							</div>
 						<?php $o++;  
 						endif; ?>
@@ -140,11 +142,13 @@
 								<a href="<?php echo the_sub_field('button_url'); ?>" class="btn" ><?php echo the_sub_field('button_label'); ?></a>
 							</div>
 						<?php } ?>
-						</div>
-						</section>
-			<?php endwhile;  ?>			
-			</div>	
-		</section>
+					</div>
+				</section>
+			<?php $tabcnt++;
+			endwhile;  ?>		
+			</div>
+		</div>	
+	</section>
 	<?php endif; 
 	/* End Product Features Sections */
 	
