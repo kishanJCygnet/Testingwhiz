@@ -121,18 +121,18 @@
 	<?php endif; ?>
 	
    <!-- js -->
-    <script src="<?php echo THEME_PATH; ?>dist/js/jquery-3.6.0.min.js"></script>
-    <script src="<?php echo THEME_PATH; ?>dist/js/bootstrap.bundle.js"></script>   
-	<script src="<?php echo THEME_PATH; ?>dist/js/owl.carousel.min.js"></script>	
-	<script src="<?php echo THEME_PATH; ?>dist/js/wow.min.js"></script>
-	<script src="<?php echo THEME_PATH; ?>dist/js/main.js"></script>	
+    <script src="<?php echo THEME_PATH; ?>assets/dist/js/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo THEME_PATH; ?>assets/dist/js/bootstrap.bundle.js"></script>   
+	<script src="<?php echo THEME_PATH; ?>assets/dist/js/owl.carousel.min.js"></script>	
+	<script src="<?php echo THEME_PATH; ?>assets/dist/js/wow.min.js"></script>
+	<script src="<?php echo THEME_PATH; ?>assets/dist/js/main.js"></script>	
 	<script type='text/javascript' id='cygnet-global-js-extra'>
 	/* <![CDATA[ */
 	var templateUrl = '<?= site_url(); ?>'+'\/wp-admin\/admin-ajax.php';
 	var ajaxPath = {"ajaxurl":templateUrl};
 	/* ]]> */
 	</script>
-	<script src="<?php echo THEME_PATH; ?>js/scripts.js"></script>
+	<script src="<?php echo THEME_PATH; ?>assets/dist/js/scripts.js"></script>
     <!-- End js -->
 	<script>
 	jQuery(document).ready(function () {
