@@ -540,7 +540,7 @@
 									<div class="editor-description wow fadeInUp"><?php echo the_sub_field('description'); ?></div>
 								<?php } ?>
 								<?php if (get_sub_field('button_url')){ ?>
-									<div class="dynamic-btn wow fadeInUp"><a href="<?php echo the_sub_field('button_url'); ?>" class="btn wow fadeInUp" ><?php echo the_sub_field('button_label'); ?></a></div>
+									<div class="dynamic-btn wow fadeInUp"><a href="<?php echo the_sub_field('button_url'); ?>" class="btn btn-white wow fadeInUp" ><span class="text"><?php echo the_sub_field('button_label'); ?></span></a></div>
 								<?php } ?>
 							</div>
 						</div>
