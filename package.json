@@ -27,6 +27,7 @@
     "terser": "^5.14.1"
   },
   "dependencies": {
+    "gulp-replace": "^1.1.3",
     "gulp-webp": "^4.0.1"
   }
 }

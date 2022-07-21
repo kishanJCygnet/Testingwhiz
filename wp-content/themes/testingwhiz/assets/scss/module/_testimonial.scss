@@ -6,8 +6,8 @@
 
 .testimonial-section {
     .testimonial {
-        @include rem-fallback(width, 1090);
-        @include rem-fallback(margin-top, 40);
+        width: 1090px;
+        margin-top: 40px;
         max-width: 100%;
         margin: auto;
         @include bp(md-max) {
@@ -22,57 +22,57 @@
         }
 
         .client-details {
-            @include rem-fallback(min-width, 530);
-            @include rem-fallback(height, 530);
-            @include rem-fallback(min-height, 530);
+            min-width: 530px;
+            height: 530px;
+            min-height: 530px;
             max-width: 100%;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
             border-radius: 50%;
-            @include rem-fallback(margin-left, 5);
-            @include rem-fallback(margin-bottom, 10);
-            @include rem-fallback(margin-top, 5);
+            margin-left: 5px;
+            margin-bottom: 10px;
+            margin-top: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
 
             @include bp(md-max) {
-                @include rem-fallback(min-width, 300);
-                @include rem-fallback(height, 300);
-                @include rem-fallback(width, 300);
-                @include rem-fallback(min-height, 300);
-                @include rem-fallback(padding, 25);
-                @include rem-fallback(margin-bottom, 15);              
+            min-width: 300px;
+            height: 300px;
+            width: 300px;
+            min-height: 300px;
+            padding: 25px;
+            margin-bottom: 15px;              
             }
             img {
-                @include rem-fallback(width, 300);
+               width: 300px;
             }
         }
         .short-decoration {           
-            @include rem-fallback(padding-left, 100);
+            padding-left: 100px;
             @include bp(md-max) {
                 padding-left: 0;
                 text-align: center;
             }
             .p1 {
                 font-weight: 600;
-                @include rem-fallback(margin-bottom, 2);
+                margin-bottom: 2px;
             }
             p {
-                @include rem-fallback(margin-top, 45);
+                margin-top: 45px;
                 position: relative;
                 @include bp(md-max) {
-                   @include rem-fallback(margin-top, 10);
-                   @include rem-fallback(padding-left, 40);
+                   margin-top: 10px;
+                   padding-left: 40px;
                 }
                 &::before {
                     content: "";
                     background-image: url("images/quote.png");
                     position: absolute;
                     top: 0;
-                    @include rem-fallback(width, 33);
-                    @include rem-fallback(height, 33);
+                    width: 33px;
+                    height: 33px;
                     background-repeat: no-repeat;
-                    @include rem-fallback(left, -45);
+                    left: -45px;
                     @include bp(md-max) {                  
                         left: 0;
                     }
@@ -85,9 +85,9 @@
     .owl-nav {
         display: inline-block;
         background-color: #8ebf69;
-        @include rem-fallback(padding, 15 30);
-        @include rem-fallback(border-radius, 44);
-        @include rem-fallback(bottom, 50);
+        padding: 15px 30px;
+        border-radius: 44px;
+        bottom: 50px;
         position: absolute;
         left: calc(50% - 174px);
         @include bp(md-max) {
@@ -96,10 +96,10 @@
         left: calc(50% - 83px);
         }
         button {
-            @include rem-fallback(margin,0 5);
+                margin:0px 5px;
             img {
                 
-                @include rem-fallback(width, 43);
+                width: 43px;
                 opacity: 1;
                 margin-right: 0;
                 transition: 0.3s all linear;
@@ -108,21 +108,21 @@
         .owl-prev {
             &.disabled {
                 img {
-                    @include rem-fallback(width, 22);
-                    @include rem-fallback(margin-right, 21);
+                width: 22px;
+                margin-right: 21px;
                      opacity: 0.47;
                 }
             }
         }
         .owl-next {
             &.disabled {
-                @include rem-fallback(width, 22);
-                @include rem-fallback(margin-right, 21);
+                width: 22px;
+                margin-right: 21px;
                 opacity: 0.47;
             }
             img {
                 transform: rotate(180deg);
-                @include rem-fallback(width, 43);
+                width: 43px;
                 opacity: 1;
                 margin-left: 0;
             }

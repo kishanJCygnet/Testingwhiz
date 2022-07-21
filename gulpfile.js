@@ -12,49 +12,49 @@ const imagewebp = require('gulp-webp');
 
 //SCSS
 function compilescss(){
-    return src('wp-content/themes/testingwhiz/scss/*.scss')
-    .pipe(sass())
+    return src('wp-content/themes/testingwhiz/assets/scss/*.scss')
+    .pipe(sass().on('error', sass.logError))
     .pipe(prefix())
     .pipe(minify())
-    .pipe(dest('wp-content/themes/testingwhiz/dist/css'))
+    .pipe(dest('wp-content/themes/testingwhiz/assets/dist/css'))
 }
 //css
 function minifycss(){
-    return src('wp-content/themes/testingwhiz/css/*.css')
+    return src('wp-content/themes/testingwhiz/assets/css/*.css')
     .pipe(prefix())
     .pipe(minify())
-    .pipe(dest('wp-content/themes/testingwhiz/dist/css'))
+    .pipe(dest('wp-content/themes/testingwhiz/assets/dist/css'))
 }
 
 //js Min
 function jsmin(){
-    return src('wp-content/themes/testingwhiz/js/*.js')
+    return src('wp-content/themes/testingwhiz/assets/js/*.js')
     .pipe(terser())
-    .pipe(dest('wp-content/themes/testingwhiz/dist/js'))
+    .pipe(dest('wp-content/themes/testingwhiz/assets/dist/js'))
 }
 
 //Optmize
 function optimizeim(){
-    return src('wp-content/themes/testingwhiz/images/*.{jpg, png}')
+    return src('wp-content/themes/testingwhiz/assets/images/*.{jpg, png}')
     .pipe(imagemin([imagemin.mozjpeg({quality:50, progressive: true}), imagemin.optipng({optimizationLevel: 2})]))
-    .pipe(dest('wp-content/themes/testingwhiz/dist/images'))
+    .pipe(dest('wp-content/themes/testingwhiz/assets/dist/images'))
 }
 
 //webp images
 
 function webpImage() {
-    return src('wp-content/themes/testingwhiz/images/*.{jpg, png}')
+    return src('wp-content/themes/testingwhiz/assets/images/*.{jpg, png}')
     .pipe(imagewebp())
-    .pipe(dest('wp-content/themes/testingwhiz/dist/images'))
+    .pipe(dest('wp-content/themes/testingwhiz/assets/dist/images'))
 }
 
 //create watch task
 function watchTask(){
-    watch('wp-content/themes/testingwhiz/scss/*.scss', compilescss);
-    watch('wp-content/themes/testingwhiz/css/*.css', minifycss);
-    watch('wp-content/themes/testingwhiz/js/*.js', jsmin);
-    watch('wp-content/themes/testingwhiz/images/*.{jpg, png}', optimizeim);
-    watch('wp-content/themes/testingwhiz/dist/images/*.{jpg, png}', webpImage);
+    watch('wp-content/themes/testingwhiz/assets/**/*.scss', compilescss);
+    watch('wp-content/themes/testingwhiz/assets/css/*.css', minifycss);
+    watch('wp-content/themes/testingwhiz/assets/js/*.js', jsmin);
+    watch('wp-content/themes/testingwhiz/assets/images/*.{jpg, png}', optimizeim);
+    watch('wp-content/themes/testingwhiz/assets/dist/images/*.{jpg, png}', webpImage);
 }
 
 //Defult gulp
