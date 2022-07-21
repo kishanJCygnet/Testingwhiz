@@ -60,8 +60,8 @@
 				<?php $cnt = 1;
 				while (have_rows('product_features')) : the_row(); 
 					$dynamicid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>				
-					<li class="nav-item">
-						<a href="#<?php echo $dynamicid; ?>" class="nav-link <?php if($cnt==1){ ?>active<?php } ?>" data-bs-toggle="tab"><?php echo the_sub_field('tab_title'); ?></a>
+					<li class="nav-item">						
+						<a href="#<?php echo $dynamicid; ?>" class="nav-link <?php if($cnt==1){ ?>active<?php } ?>" data-bs-toggle="tab"><?php if (get_sub_field('tab_image')){ ?><span class="icon"><img src="<?php echo the_sub_field('tab_image'); ?>" alt="<?php echo the_sub_field('title'); ?>"/></span><?php } ?> <?php echo the_sub_field('tab_title'); ?></a>
 					</li>
 				<?php $cnt++;
 				endwhile; ?>
@@ -76,32 +76,21 @@
 				$dynamicinnerid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>
 				<section id="<?php echo $dynamicinnerid; ?>" class="tab-pane <?php if($tabcnt==1){ ?>show active<?php } ?>">
 					<div class="container">
-						<div class="two-colum-layout cfr-tw-col-item left-title">	
-							<div class="two-colum-content">
-								<div class="col-left">								
-									<div class="d-flex align-items-center h-100 ">
-										<div>
-											<?php if (get_sub_field('title')){ ?>
-											<div class="content-title-heading">
-												<h2 class=""><?php echo the_sub_field('title'); ?>
-													<span class="heading-border"></span>
-												</h2>
-											</div>
-											<?php } ?>						   
-											<?php if (get_sub_field('description')){ ?>
-												<div class="description p2"><?php echo the_sub_field('description'); ?></div>
-											<?php } ?>
-										</div>
+						<div class="two-colum-layout cfr-tw-col-item left-title">																					
+							<div class="d-flex align-items-center h-100 ">
+								<div>
+									<?php if (get_sub_field('title')){ ?>
+									<div class="content-title-heading">
+										<h2 class=""><?php echo the_sub_field('title'); ?>
+											<span class="heading-border"></span>
+										</h2>
 									</div>
-								</div>	
-								<div class="col-right">
-									<?php if (get_sub_field('image')){ ?>
-									<div class="icon">
-										<img src="<?php echo the_sub_field('image'); ?>" alt="<?php echo the_sub_field('title'); ?>" class="" />
-									</div>
+									<?php } ?>						   
+									<?php if (get_sub_field('description')){ ?>
+										<div class="description p2"><?php echo the_sub_field('description'); ?></div>
 									<?php } ?>
 								</div>
-							</div>		
+							</div>
 						</div>				
 						<?php if (have_rows('features')) :  ?>
 							<div class="accordion" id="accordionExample<?php echo $o; ?>">								
