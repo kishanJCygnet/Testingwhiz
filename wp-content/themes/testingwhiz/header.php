@@ -40,7 +40,7 @@
 	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/owl.carousel.min.css">
     <link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/animate.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/style.css">
+	<link rel="newest stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/style.css">
 	<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=624e7021b2841900196d492a&product=sop' id='share-this-share-buttons-mu-js' async='async'></script>
 	
 	<?php wp_head(); ?>
@@ -48,7 +48,7 @@
 
 <body <?php body_class(); ?>>
 <header>
-        <div class="topBar bgPrimary navbar-expand-lg py-2">
+        <div class="topBar navbar-expand-lg py-2">
             <div class="container-fluid d-flex">
                 <ul class="navbar-nav ms-auto   justify-content-end item-cent">
                     <li class="nav-item Website-list">
@@ -67,21 +67,21 @@
 							<?php endif; 
 							/* Group website links end */ ?>	
                     </li>
-                    <li class="nav-item d-none">
+                    <!-- <li class="nav-item d-none">
                         <a href="<?php echo site_url(); ?>/15-days-free-trial" class="btn"> 15 Days Free Trial</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="https://account.cygnature.io/Account/Login" target="_blank">Login</a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item"> -->
 						<!--<a id="sign-up" class="nav-link" href="<?php //echo site_url(); ?>/sign-up">Sign Up</a>-->
-						<a id="sign-up" class="nav-link" href="<?php echo site_url(); ?>/15-days-free-trial"><span>Get 15 Days Free Trial</span><span class="d-none">Sign Up</span></a>
+						<!-- <a id="sign-up" class="nav-link" href="<?php echo site_url(); ?>/15-days-free-trial"><span>Get 15 Days Free Trial</span><span class="d-none">Sign Up</span></a> -->
 						<?php /*if($post->post_name != 'sign-documents-for-free'){ ?>
 							<a id="sign-up" class="nav-link" href="#contactus">Sign Up</a>
 						<?php } else { ?>
 							<a id="sign-up" class="nav-link" href="#signupform">Sign Up</a>
 						<?php }*/ ?>
-                    </li>
+                    <!-- </li> -->
                 </ul>
                 <div class="d-flex item-center">
                     <!--<a href="#" class="so-icon"><i class="fas fa-search"></i></a>-->
@@ -153,12 +153,16 @@
                <div class="right-content d-flex align-items-center">
                <?php $post_slug = $post->post_name;
 				if($post_slug != '15-days-free-trial' && $post_slug != 'sign-up' && $post_slug != 'thank-you-for-contacting-us' && $post_slug != 'thank-you-for-signing-up' && $post_slug != 'thank-you-for-your-interest' ){?>
-                    <a id="contact_us" href="#contactus" class="btn btn-outline-primary rounded-pill contact-us ms-2 fw-bold">Book a demo</a>
+                    <a id="contact_us" href="#contactus" class="btn btn-white contact-us ms-2 "><span class="text">Get In Touch</span></a>
+                    <?php } ?>
+					<?php $post_slug = $post->post_name;
+					if($post_slug != '15-days-free-trial' && $post_slug != 'sign-up' && $post_slug != 'thank-you-for-contacting-us' && $post_slug != 'thank-you-for-signing-up' && $post_slug != 'thank-you-for-your-interest' ){?>
+                    <a id="contact_us" href="#contactus" class="btn contact-us ms-2 "><span class="text">Community Version</span></a>
                     <?php } ?>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
                     aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+						<span class="navbar-toggler-icon"></span>
+					</button>
                 </div> 
 				
             </div>

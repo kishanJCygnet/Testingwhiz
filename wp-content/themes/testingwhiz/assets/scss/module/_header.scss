@@ -1,28 +1,37 @@
+body{
 //  Top bar
 .topBar {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0 !important;
     .navbar-nav {
         flex-direction: row;
         .btn {
-            @include rem-fallback(margin,0 30);
-            @include rem-fallback(padding,7 20);
+            margin:0px 30px;
+            padding:7px 20px;
         }
         li {
             @include bp(xxs-max) {           
-             @include rem-fallback(margin,0 7);
+             margin:0px 7px;
             }
             a {
-                &:focus {
+                &:focus {   
                     color: #fff;
                 }
             }
             @include bp(xl-max) {
-                @include rem-fallback(margin,0 5);
+                margin:0px 5px;
             }
+        }
+        .nav-link {
+            font-size: 14px;
+            font-weight: normal;
         }
     }
     .gp-website {
-        color: #8fc069;
+        color: #fff;
+        &:hover,
+        &:focus{
+            color: rgba(255, 255, 255, 0.871);
+        }
     }
     ul {
         li {
@@ -52,7 +61,7 @@
     /* display: flex; */
     margin: auto 3px;
     @include bp(xl-max) {
-        @include rem-fallback(padding,8);
+        padding:8px;
     }
     color: #0c3761;
     text-decoration: none;
@@ -64,18 +73,18 @@
     position: relative;
     &::after {
         content: "";
-        @include rem-fallback(width,1.5);
+        width:1.5px;
         position: absolute;
-        @include rem-fallback(top,2);        
-        @include rem-fallback(bottom,2);        
-        @include rem-fallback(left,2);        
-        @include rem-fallback(margin,0 -5);        
+        top:2px;        
+        bottom:2px;        
+        left:2px;        
+        margin:0px 10px;        
         background-color: #0c3761;
     }
 }
 
 .dropdown-menu {
-     @include rem-fallback(min-width, 250);  
+    min-width: 250px;  
     right: auto !important;
     left: 50% !important;
     -webkit-transform: translate(-50%, 0);
@@ -92,7 +101,7 @@
 .dropdown-menu li a:hover {
     color: #fff;
     font-weight: normal;
-    @include rem-fallback(font-size, 14);  
+    font-size: 14px;  
 }
 
 /* search icon */
@@ -100,10 +109,10 @@
     margin: auto 3px;
     position: relative;
     display: inline-block;
-    @include rem-fallback(width, 30);  
-    @include rem-fallback(height, 30);  
+    width: 30px;  
+    height: 30px;  
     transition: 0.3s all linear;
-    @include rem-fallback( border-radius, 5); 
+    border-radius: 5px; 
 
     .overlay {
         @include positionOverlay;
@@ -122,13 +131,13 @@
             background-color: transparent !important;
             background-image: none !important;
             .probox {
-                @include rem-fallback(height, 30 !important);
+                height: 30px !important;
                 background-color: transparent !important;
                 background-image: none !important;
-                @include rem-fallback( border-radius, 5); 
+                 border-radius: 5px; 
                 .promagnifier {
-                    @include rem-fallback(width, 30);  
-                    @include rem-fallback(height, 30);  
+                    width: 30px;  
+                    height: 30px;  
                     background-color: #fff;
                     background-image: none;
                     border-radius: 50%;
@@ -139,8 +148,8 @@
                 .proinput {
                     input {
                         color: #000 !important;
-                        @include rem-fallback(padding-left, 10 !important);  
-                        @include rem-fallback(height, 30 !important);
+                        padding-left: 10px !important;
+                        height: 30px !important;
                         &::placeholder {
                             color: #444 !important;
                         }
@@ -150,18 +159,18 @@
                 .proclose,
                 .promagnifier,
                 .prosettings {
-                    @include rem-fallback(width, 30 !important);  
-                    @include rem-fallback(height, 30 !important);  
+                    width: 30px !important;  
+                    height: 30px !important;  
                 }
             }
         }
     }
     &.show {
-        @include rem-fallback(width, 300);  
+        width: 300px;  
         background-color: #fff;
         .overlay {
             left: auto;
-            @include rem-fallback(width, 30);  
+            width: 30px;  
         }
     }
     #ajaxsearchlite1 {
@@ -169,8 +178,8 @@
             .proinput {
                 input {
                     color: #000 !important;
-                    @include rem-fallback(padding-left, 10 !important);  
-                    @include rem-fallback(height, 30 !important);  
+                    padding-left: 10px !important;
+                    height: 30px !important;  
                     &::placeholder {
                         color: #444 !important;
                     }
@@ -199,7 +208,7 @@ input[type="checkbox"]:after {
     color: #414042;
 }
 .social-media {
-    @include rem-fallback(font-size, 15 !important);  
+    font-size: 15px !important;  
     .social-title {
         font-size: 1.125rem;
         display: inline-block;
@@ -211,12 +220,11 @@ input[type="checkbox"]:after {
             line-height: normal;
             display: inline-block;
             a {
-                @include rem-fallback(width, 32);  
-                    @include rem-fallback(height, 32);  
+                width: 32px;  
+                height: 32px;  
                 display: block;
                 background-color: #414042;
                 text-align: center;
-                @include rem-fallback(line-height, 34);  
                 line-height: 34px;
                 border-radius: 100%;
                 color: #fff;
@@ -240,7 +248,7 @@ header {
     left: 0;
     right: 0;
     .navbar {
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid rgba(255, 255, 255,0.29);
         -webkit-transition: all 0.3s;
         -moz-transition: all 0.3s;
         -ms-transition: all 0.3s;
@@ -257,11 +265,11 @@ header {
         }
         .navbar-nav {
             .nav-link {
-                @include rem-fallback(font-size, 14);  
+                font-size: 14px;  
                 font-weight: normal;
             }
             li {
-               @include rem-fallback(margin, 0 5);  
+               margin: 0 5px;  
                 font-weight: normal;
                 a {
                     position: relative;
@@ -275,8 +283,8 @@ header {
                             position: absolute;
                             left: 0;
                             right: 0;
-                            @include rem-fallback(top, -18);  
-                            @include rem-fallback(height, 4);  
+                            top: -18px;  
+                            height: 4px;  
                             background-color: #3cb4e7;
                             border: 0;
                         }
@@ -287,8 +295,8 @@ header {
                             position: absolute;
                             left: 0;
                             right: 0;
-                            @include rem-fallback(top, -18);  
-                            @include rem-fallback(height, 4);  
+                            top:-18px;  
+                            height: 4px;  
                             background-color: #3cb4e7;
                             border: 0;
                         }
@@ -298,9 +306,9 @@ header {
                         color: #0c3761;
                     }
                     @include bp(lg-max) {
-                        @include rem-fallback(font-size, 14); 
-                        @include rem-fallback(width, 3 !important);  
-                        @include rem-fallback(height, 3 !important); 
+                        font-size: 14px; 
+                        width: 3px !important;  
+                        height: 3px !important; 
                     }
                 }
             }
@@ -310,12 +318,12 @@ header {
                 margin-right: 0;
             }
             img {
-                width: 200px;
+                width: 240px;
                 @include bp(lg-max) {
-                    @include rem-fallback(width, 160); 
+                width: 160px; 
                 }
                 @include bp(xxs-max) {
-                    @include rem-fallback(width, 120); 
+                width: 120px; 
                 }
             }
         }
@@ -332,7 +340,7 @@ header {
             position: fixed;
             left: 0;
             right: 0;
-            @include rem-fallback(top, 141); 
+            top: 141px; 
             bottom: 0;
             background: #0c3761;
             z-index: 9999;
@@ -341,7 +349,7 @@ header {
         }
         li {
             &.menu-item {
-                @include rem-fallback(padding, 0 15); 
+                padding: 0 15px; 
                 position: relative;
                 @include bp(md-max) {
                     width: 100%;
@@ -351,8 +359,8 @@ header {
                     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
                     a {
-                        @include rem-fallback(padding, 0 15); 
-                        @include rem-fallback(font-size, 14); 
+                        padding: 0 15px; 
+                        font-size: 14px; 
                         text-decoration: none;
                     }
                 }
@@ -362,9 +370,9 @@ header {
                     position: absolute;
                     left: 50%;
                     right: 50%;
-                    background-color: #8fc069;
-                    @include rem-fallback(height, 3 !important); 
-                    @include rem-fallback(bottom, -1 !important); 
+                    background-color: #fff;
+                    height: 3px !important; 
+                    bottom: -1px !important; 
                     transition: 0.3s all linear;
                 }
                 &:hover {
@@ -381,20 +389,20 @@ header {
                     display: none;
                 }
                 a {
-                    @include rem-fallback(font-size, 14); 
+                    font-size: 14px; 
                     color: #fff;
                     text-transform: uppercase;
-                    @include rem-fallback(line-height, 28); 
-                    @include rem-fallback(padding-top, 35); 
-                    @include rem-fallback(padding-bottom, 35); 
+                    line-height: 28px; 
+                    padding-top: 22px;
+                    padding-bottom: 25px; 
                   
                     &:hover {
                         text-decoration: none;
                     }
                     @include bp(lg-max) {
                         padding: 23px 8px;
-                        @include rem-fallback(padding, 23 8); 
-                        @include rem-fallback(font-size, 12); 
+                        padding: 23px 8px; 
+                        font-size: 12px; 
                     }
                 }
             }
@@ -571,7 +579,7 @@ header {
                     border-radius: 8px;
                     display: unset;
                     opacity: 1;
-                    top: 99px;
+                    top: 70px;
                     visibility: visible;
                     display: block;
                     @include bp(md-max) {
@@ -599,7 +607,7 @@ header {
                         top: 0px;
                     }
                     @include bp(md-max) {
-                       @include rem-fallback(top, 80); 
+                       top: 80px; 
                     }
                 }
             }
@@ -610,10 +618,10 @@ header {
                     & > .primary-menu-container {
                       
                         @include bp(xs-max) {
-                            @include rem-fallback(top, 49); 
+                            top: 49px; 
                         }
                         @include bp(xxs-max) {
-                            @include rem-fallback(top, 45); 
+                            top: 45px; 
                         }                       
                     }
                 }
@@ -709,3 +717,63 @@ header {
     }
 }
 // ************************** End Menu Content *******************
+.Website-list{
+    position: relative;
+    &:hover{
+        ul{
+        display: block;
+        }
+    }
+    ul{
+        position: absolute;
+        padding-left: 0;
+        background-color: #fff;
+        width: 250px;
+        border-radius: 8px;
+        padding: 15px;
+        top: 45px;
+        right: 0;
+        z-index: 9;
+        display: none;
+        box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%), 0 30px 60px -30px rgb(0 0 0 / 30%);
+        li{
+            a{
+                color: #0c3761;
+                font-weight: 500;
+                font-size: 14px;
+                padding: 5px 0;
+                &:hover{
+                    font-weight: 500;
+                }
+            }
+        }
+
+        &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            width: 0;
+            right: 37px;
+            border-style: solid;
+            top: -10px;
+            border-color: #fff transparent;
+            border-width: 0 7px 10px 7px;
+        }
+    }
+}
+.so-icon {
+    display: inline-flex;
+    background-color: #ffff;
+    border-radius: 50%;
+    display: flex;
+    margin: auto 3px;
+    padding: 0px;
+    color: #0c3761;
+    text-decoration: none;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+}
