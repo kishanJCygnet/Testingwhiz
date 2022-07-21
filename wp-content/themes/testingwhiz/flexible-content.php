@@ -52,6 +52,30 @@
 		<?php endif;
 	/* End banner content */	
 	
+	/* Home Content Sections */ 
+	if (get_field('features_title') || get_field('features_content') || get_field('features_sub_title')){ ?>
+	<section class="py-0">
+		 <div class="container section-container-padding">
+			<div class="title-heading">
+				<?php if (get_field('features_title')){ ?>
+					<h2 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_field('features_title'); ?>
+						<span class="heading-border"></span> 
+					</h2>
+				<?php } ?>
+				<?php if (get_field('features_sub_title')){ ?>
+					<h3 class="wow fadeInUp" data-wow-delay="0.6s" ><?php echo the_field('features_sub_title'); ?></h3>
+				<?php } ?>
+			</div>
+			<div class="row">
+				<div class="col-md-12 col-xl-12 align-self-center industry-highlight-text">
+					<?php echo the_field('features_content'); ?>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php } 
+	/* End Home Content Sections */
+	
 	/* Product Features Sections */
 	if (have_rows('product_features')) : ?>
 	<section class="py-0">
@@ -61,7 +85,25 @@
 				while (have_rows('product_features')) : the_row(); 
 					$dynamicid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>				
 					<li class="nav-item">						
-						<a href="#<?php echo $dynamicid; ?>" class="nav-link <?php if($cnt==1){ ?>active<?php } ?>" data-bs-toggle="tab"><?php if (get_sub_field('tab_image')){ ?><span class="icon"><img src="<?php echo the_sub_field('tab_image'); ?>" alt="<?php echo the_sub_field('title'); ?>"/></span><?php } ?> <?php echo the_sub_field('tab_title'); ?></a>
+						<a href="#<?php echo $dynamicid; ?>" class="nav-link <?php if($cnt==1){ ?>active<?php } ?>" data-bs-toggle="tab">
+							<?php if (get_sub_field('tab_image')){ ?>
+								<span class="icon">
+									<?php $extension = pathinfo(get_sub_field('tab_image'), PATHINFO_EXTENSION);
+										if($extension == 'svg'){
+											$tab_image = get_sub_field('tab_image');
+											$stream_opts = [
+												"ssl" => [
+													"verify_peer"=>false,
+													"verify_peer_name"=>false,
+												]
+											];														 
+											echo file_get_contents($tab_image, false, stream_context_create($stream_opts));
+										} else { ?>
+											<img src="<?php echo the_sub_field('tab_image'); ?>" alt="<?php echo the_sub_field('tab_title'); ?>">
+									<?php } ?>
+								</span>
+							<?php } ?> <?php echo the_sub_field('tab_title'); ?>
+						</a>
 					</li>
 				<?php $cnt++;
 				endwhile; ?>
@@ -128,7 +170,7 @@
 						endif; ?>
 						<?php if (get_sub_field('button_url')){ ?>							
 							<div class="col-md-12 text-center">
-								<a href="<?php echo the_sub_field('button_url'); ?>" class="btn" ><?php echo the_sub_field('button_label'); ?></a>
+								<a href="<?php echo the_sub_field('button_url'); ?>" class="link" ><?php echo the_sub_field('button_label'); ?></a>
 							</div>
 						<?php } ?>
 					</div>
@@ -139,8 +181,7 @@
 		</div>	
 	</section>
 	<?php endif; 
-	/* End Product Features Sections */
-	
+	/* End Product Features Sections */	
 	
 	/* Top Tab Section block */
 	if (have_rows('top_tab_content')) :  ?>
@@ -219,13 +260,19 @@
 									<div class="icon-box wow fadeInUp" data-wow-delay="<?php echo $s; ?>s" data-wow-offset="30">
 											<?php if (get_sub_field('icon_box_image')){ ?>
 											<div class="icon">
-											<?php $extension = pathinfo(get_sub_field('icon_box_image'), PATHINFO_EXTENSION);
-												if($extension == 'svg'){
-													$icon_box_image = get_sub_field('icon_box_image');
-													echo file_get_contents($icon_box_image);  
-												} else { ?>
-													<img src="<?php echo the_sub_field('icon_box_image'); ?>" alt="<?php echo the_sub_field('icon_box_title'); ?>" />
-											<?php } ?>
+												<?php $extension = pathinfo(get_sub_field('icon_box_image'), PATHINFO_EXTENSION);
+													if($extension == 'svg'){
+														$icon_box_image = get_sub_field('icon_box_image');
+														$stream_opts = [
+															"ssl" => [
+																"verify_peer"=>false,
+																"verify_peer_name"=>false,
+															]
+														];														 
+														echo file_get_contents($icon_box_image, false, stream_context_create($stream_opts));
+													} else { ?>
+														<img src="<?php echo the_sub_field('icon_box_image'); ?>" alt="<?php echo the_sub_field('icon_box_title'); ?>">
+												<?php } ?>
 											</div>
 											<?php } ?>
 											<?php if (get_sub_field('icon_box_title')){ ?>
@@ -561,13 +608,19 @@
 											<div class="icon-box wow fadeInUp" data-wow-delay="<?php echo $s; ?>s" data-wow-offset="50">
 												<?php if (get_sub_field('icon_box_image')){ ?>
 												<div class="icon">
-												<?php $extension = pathinfo(get_sub_field('icon_box_image'), PATHINFO_EXTENSION);
-													if($extension == 'svg'){
-														$icon_box_image = get_sub_field('icon_box_image');
-														echo file_get_contents($icon_box_image);  
-													} else { ?>
-														<img src="<?php echo the_sub_field('icon_box_image'); ?>" alt="<?php echo the_sub_field('icon_box_title'); ?>" />
-												<?php } ?>
+													<?php $extension = pathinfo(get_sub_field('icon_box_image'), PATHINFO_EXTENSION);
+														if($extension == 'svg'){
+															$icon_box_image = get_sub_field('icon_box_image');
+															$stream_opts = [
+																"ssl" => [
+																	"verify_peer"=>false,
+																	"verify_peer_name"=>false,
+																]
+															];														 
+															echo file_get_contents($icon_box_image, false, stream_context_create($stream_opts));
+														} else { ?>
+															<img src="<?php echo the_sub_field('icon_box_image'); ?>" alt="<?php echo the_sub_field('icon_box_title'); ?>">
+													<?php } ?>
 												</div>
 												<?php } ?>
 												<?php if (get_sub_field('icon_box_title')){ ?>
