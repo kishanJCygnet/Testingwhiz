@@ -1,30 +1,48 @@
 //**************************** Start Banner Content******************************
 .banner-content {
     padding: 0;
+
+    &.home-banner {
+        .banner-inner-content {
+        background-image: url('../../images/BG.png') !important;
+        overflow: hidden;
+        .img-content{
+            height: 530px;
+            text-align: right;
+            img{
+                height: 100%;
+                object-fit: contain;
+                width: auto !important;
+                position: relative;
+                right: -54px;
+            }
+        }
+        }
+    }
     .banner-inner-content {
         background-size: cover;
         background-position: center center;
         position: relative;
-        min-height: 90vh;
-        @include rem-fallback(margin-top, 60);
-        @include rem-fallback(padding-top, 100);
+        min-height: 90vh;       
+        padding-top: 147px;
+        padding-bottom: 60px;
         display: flex;
-        align-items: center;
-        background-color: #0c3761;
-        background-blend-mode: multiply;
+        align-items: center;       
         background-repeat: no-repeat;
         background-attachment: fixed;
         z-index: 1;
-        position: relative;
+        position: relative;     
+       
     }
     &.inner-page-banner {
         .banner-inner-content {
             height: 50vh;
-            @include rem-fallback(min-height, 300);
+            min-height: 300px;
         }
     }
     .text-content {
         position: relative;
+        padding-left: 100px;
         h1 {
             color: #fff;
             align-items: center;
@@ -45,7 +63,7 @@
     .down-arrow {
         position: absolute;
         right: 49%;
-        @include rem-fallback(bottom, -30);
+        bottom: -30px;
     }
     .arrow {
         position: absolute;
@@ -54,12 +72,12 @@
         transform: translate(-50%, -50%);
         span {
             display: block;
-            @include rem-fallback(width, 30px);
-            @include rem-fallback(height, 30px);
+            width: 30px;
+            height: 30px;
             border-bottom: 4px solid #fff;
             border-right: 4px solid #fff;
             transform: rotate(45deg);
-            @include rem-fallback(margin, -10px);
+            margin: -10px;
             animation: animate 2s infinite;
             &:nth-child(2) {
                 animation-delay: -0.2s;
@@ -70,10 +88,10 @@
         }
     }
     h1 {
-        @include rem-fallback(margin-bottom, 40px);
+        margin-bottom: 40px;
     }
     h3 {
-        @include rem-fallback(margin-bottom, 40px);
+        margin-bottom: 40px;
         font-weight: normal;
     }
     @include bp(lg-max) {
@@ -85,7 +103,7 @@
 .half-banner {
     .banner-inner-content {
         height: 50vh;
-        @include rem-fallback(min-height, 300);
+        min-height: 300px;
     }
 }
 .half-banner {

@@ -3,9 +3,9 @@
     z-index: 0;
     color: #fff;
     background-color: #0c3761;
-    @include rem-fallback(padding-top, 50);
-    @include rem-fallback(padding-bottom, 20);
-    @include rem-fallback(margin-top, -80);
+   padding-top: 50px;
+   padding-bottom: 20px;
+   margin-top:-80px;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     a {
         text-decoration: none;
@@ -18,26 +18,26 @@
 }
 
 .footer-logo {
-    @include rem-fallback(margin-bottom, 20);
-    @include rem-fallback(margin-right, 70);
+   margin-bottom: 20px;
+   margin-right: 70px;
     position: relative;
     @include bp(md-max) {
         margin-right: 0;
-        @include rem-fallback(margin-bottom, 15);
+       margin-bottom: 15px;
         width: 100%;
         text-align: center;
     }
     img {
-        @include rem-fallback(width, 200);
+        width:200px;
     }
     &::after {
         content: "";
         position: absolute;
         top: 0;
         bottom: 0;
-        @include rem-fallback(width, 3);
+        width: 3px;
         background-color: white;
-        @include rem-fallback(right, -38);
+        right: -38px;
 
         @include bp(md-max) {
             display: none;
@@ -45,12 +45,12 @@
     }
 }
 .footer-links {
-    @include rem-fallback(font-size, 15);
+    font-size:15px;
     li {
         display: inline-block;
         vertical-align: middle;
-        @include rem-fallback(margin-left, 10);
-        @include rem-fallback(padding-right, 12);
+        margin-left: 10px;
+        padding-right: 12px;
         position: relative;
         &:after {
             content: "|";

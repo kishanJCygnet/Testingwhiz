@@ -5,7 +5,7 @@
 			<section class="banner-content <?php echo the_field('banner_class'); ?>">    
 				<?php while (have_rows('banner')) : the_row(); ?>
 					<div class="banner-inner-content w-100" style="background-image:url('<?php echo the_sub_field('background_image'); ?>')">  
-						<div class="container">
+						<div class="container-fluid">
 						 <div class="row" >
 							<div class="col-lg-7">
 								<div class="d-flex align-items-center h-100">
@@ -15,12 +15,9 @@
 										<?php endif; ?>
 										<?php if (get_sub_field('sub_title')) :  ?>
 											<h3 class="text-white wow fadeInUp" data-wow-delay="0.6s"><?php echo the_sub_field('sub_title'); ?></h3>
-										<?php endif; ?>
-										<?php if ( is_front_page() ) : ?>
-											<a href="#" class="btn btn-primary me-3 wow fadeInUp" data-bs-toggle="modal" data-bs-target="#videoModal" data-tagVideo="https://www.youtube.com/embed/rl1DhHq6AzE" >Know About Cygnature</a>
-										<?php endif; ?>
+										<?php endif; ?>										
 										<?php if (get_sub_field('primary_button_url') && get_sub_field('primary_button_label') && !is_front_page()) : ?>
-											<a href="<?php echo the_sub_field('primary_button_url'); ?>" class="btn btn-primary me-3 wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('primary_button_label'); ?></a>
+											<a href="<?php echo the_sub_field('primary_button_url'); ?>" class="btn me-3 wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('primary_button_label'); ?></a>
 										<?php endif; ?>
 										<?php if (get_sub_field('secondary_button_url') && get_sub_field('secondary_button_label')) : ?>
 											<a href="<?php echo the_sub_field('secondary_button_url'); ?>" class="btn wow fadeInUp" data-wow-delay="0.9s"><?php echo the_sub_field('secondary_button_label'); ?></a>
