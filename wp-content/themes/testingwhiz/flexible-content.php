@@ -52,9 +52,16 @@
 		<?php endif;
 	/* End banner content */	
 	
+	
+	
+	/* Product Features Sections */
+	?>
+
+	<section class="pb-0">
+		<?php
 	/* Home Content Sections */ 
 	if (get_field('features_title') || get_field('features_content') || get_field('features_sub_title')){ ?>
-	<section class="py-0">
+
 		 <div class="container section-container-padding">
 			<div class="title-heading">
 				<?php if (get_field('features_title')){ ?>
@@ -72,13 +79,9 @@
 				</div>
 			</div>
 		</div>
-	</section>
 	<?php } 
 	/* End Home Content Sections */
-	
-	/* Product Features Sections */
 	if (have_rows('product_features')) : ?>
-	<section class="py-0">
 		<div class="product-feature-tab">
 			<ul class="nav nav-tabs">
 				<?php $cnt = 1;
@@ -117,23 +120,20 @@
 				while (have_rows('product_features')) : the_row(); 
 				$dynamicinnerid = str_replace(' ', '_', get_sub_field('tab_title'));  ?>
 				<section id="<?php echo $dynamicinnerid; ?>" class="tab-pane <?php if($tabcnt==1){ ?>show active<?php } ?>">
-					<div class="container">
-						<div class="two-colum-layout cfr-tw-col-item left-title">																					
-							<div class="d-flex align-items-center h-100 ">
-								<div>
-									<?php if (get_sub_field('title')){ ?>
-									<div class="content-title-heading">
-										<h2 class=""><?php echo the_sub_field('title'); ?>
-											<span class="heading-border"></span>
-										</h2>
-									</div>
-									<?php } ?>						   
-									<?php if (get_sub_field('description')){ ?>
-										<div class="description p2"><?php echo the_sub_field('description'); ?></div>
-									<?php } ?>
-								</div>
+					<div class="container">	
+						<div class="product-feature-content">
+							<?php if (get_sub_field('title')){ ?>
+							<div class="content-title-heading">
+								<h2 class=""><?php echo the_sub_field('title'); ?>
+									<span class="heading-border"></span>
+								</h2>
 							</div>
-						</div>				
+							<?php } ?>						   
+							<?php if (get_sub_field('description')){ ?>
+								<div class="description p2"><?php echo the_sub_field('description'); ?></div>
+							<?php } ?>
+						</div>
+							
 						<?php if (have_rows('features')) :  ?>
 							<div class="accordion" id="accordionExample<?php echo $o; ?>">								
 								<?php $m=1;
@@ -170,7 +170,7 @@
 						endif; ?>
 						<?php if (get_sub_field('button_url')){ ?>							
 							<div class="col-md-12 text-center">
-								<a href="<?php echo the_sub_field('button_url'); ?>" class="link" ><?php echo the_sub_field('button_label'); ?></a>
+								<a href="<?php echo the_sub_field('button_url'); ?>" class="link" ><?php echo the_sub_field('button_label'); ?> <img alt="arrow" src="<?php echo THEME_PATH; ?>assets/images/arrow-right.svg" /></a>
 							</div>
 						<?php } ?>
 					</div>
@@ -179,8 +179,9 @@
 			endwhile;  ?>		
 			</div>
 		</div>	
+		<?php endif; ?>
 	</section>
-	<?php endif; 
+	<?php 
 	/* End Product Features Sections */	
 	
 	/* Top Tab Section block */
@@ -240,7 +241,7 @@
 			/* Icon Box Start */
 			if (get_row_layout() == 'icon_box') : ?>
 				<section class="<?php echo the_sub_field('icon_box_custom_class'); ?>" <?php echo $slugid; ?>>
-					<div class="container-fluid">
+					<div class="container">
 						<div class="title-heading">
 							<?php if (get_sub_field('title')){ ?>
 								<h2 class="wow fadeInUp" data-wow-offset="50"><?php echo the_sub_field('title'); ?>
@@ -327,50 +328,14 @@
 						</div>
 						<?php if (have_rows('logo_list')) : ?>					
 							<div class="client-logos">
-								<div class="owl-carousel client-logo-slider">
+								<div class="client-logo-slider">
 								   <?php while (have_rows('logo_list')) : the_row(); ?>
 										<?php if (get_sub_field('logo_image')) { ?>
 												<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" >
 										<?php } ?>
 								   <?php endwhile;?>
 								</div>
-							</div>
-							<script>
-							jQuery(document).ready(function() {
-								jQuery('.client-logo-slider').length && jQuery('.client-logo-slider').owlCarousel({
-									loop: false,
-									
-									autoplay: true,
-									nav: false,
-									dots: true,
-									
-									navText: [
-										'<span><i class=\'bi bi-chevron-left\'></i></span>Previous',
-										'Next<span><i class=\'bi bi-chevron-right\'></i></span>'
-									],
-									responsive : {
-											// breakpoint from 0 up
-											0 : {
-												items:2,
-												margin: 40,
-											},
-											768 : {
-												items:3,
-												margin: 60,
-											},
-											992 : {
-												items:3,
-												margin: 60,
-											},
-											1200 : {
-												items: 5,
-												margin: 100,
-											},											
-										}
-									
-								})
-							})
-							</script>
+							</div>							
 					<?php endif; ?>
 					</div>
 				</section>
