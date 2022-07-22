@@ -1,4 +1,5 @@
 .product-feature-tab{
+    margin-top: 50px;
     & > span{
         display: none;
     }
@@ -51,4 +52,30 @@
             }
         }
     }
+   
 }
+.product-feature{
+    .product-feature-content{
+        margin-bottom: 50px;
+        .description {
+            width: 900px;
+            max-width: 100%;
+            margin: auto;
+            text-align: center;
+        }
+    }
+    .link{
+        margin-top: 35px;
+        img{
+            position: relative;
+            left: 0;
+            transition: .3s all linear;
+            margin-left: 3px;
+        }
+        &:hover{
+          img{
+            left: 8px;
+          }
+        }
+    }
+}   
