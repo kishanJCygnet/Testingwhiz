@@ -23,23 +23,23 @@ jQuery(document).ready(function(){
   });
   
 
-  var sectionIds = jQuery('.product-feature-tab a');
+  // var sectionIds = jQuery('.product-feature-tab a');
 
-  jQuery(document).scroll(function(){
-      sectionIds.each(function(){
-          var container = jQuery(this).attr('href');
-          var containerOffset = jQuery(container).offset().top;
-          var containerHeight = jQuery(container).outerHeight();
-          var containerBottom = containerOffset + containerHeight;
-          var scrollPosition = jQuery(document).scrollTop() + 180;
+  // jQuery(document).scroll(function(){
+  //     sectionIds.each(function(){
+  //         var container = jQuery(this).attr('href');
+  //         var containerOffset = jQuery(container).offset().top;
+  //         var containerHeight = jQuery(container).outerHeight();
+  //         var containerBottom = containerOffset + containerHeight;
+  //         var scrollPosition = jQuery(document).scrollTop() + 180;
   
-          if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
-              jQuery(this).addClass('active');
-          } else{
-              jQuery(this).removeClass('active');
-          }
-      });
-  });  
+  //         if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
+  //             jQuery(this).addClass('active');
+  //         } else{
+  //             jQuery(this).removeClass('active');
+  //         }
+  //     });
+  // });  
   jQuery(function() {
     jQuery('a[href*=\\#]:not([href=\\#])').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') 

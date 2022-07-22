@@ -1,0 +1,54 @@
+.product-feature-tab{
+    & > span{
+        display: none;
+    }
+    .nav-tabs{
+        display: flex;
+        border-bottom: 1px solid #0f376445;
+        
+        li{
+            a{
+                &.nav-link{
+                    margin-bottom: 0px;
+                    font-size: 16px;
+                    color:rgba(0, 89, 105, 0.6);
+                    &:hover{
+                        border-color:transparent;
+                    }
+                    &.active{
+                     color:#005969;
+                     font-weight: 500;
+                     border-color:transparent;
+                     position: relative;
+
+                     &:after{
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        bottom: -2px;
+                        height: 3px;
+                        background-color: #005969;
+                     }
+                     .icon{
+                        svg{
+                            path{
+                                fill:#005969 !important;
+                            }
+                         }
+                     }
+                    }
+                 }
+                .icon{
+                   svg{
+                    width: 35px;
+                    height: 25px;
+                    path{
+                    fill:rgba(0, 89, 105, 0.6);
+                    }
+                    }
+                }
+            }
+        }
+    }
+}

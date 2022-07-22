@@ -16,9 +16,9 @@ html {
 }
 
 body {
-  background-color: #d9ebf7;
+  background-color: #ffffff !important;
   font-family: $roboto;
- font-size:14px;
+  font-size:14px;
   line-height: 28pxpx;
   font-weight: 400;
   /* typoraphy */
@@ -72,14 +72,12 @@ h3 {
 }
 
 .p1 {
- font-size:22px;
+  font-size:22px;
   line-height:32px;
   font-weight: normal;
 }
 .p2 {
   font-size: 18px !important;
-  line-height: 28pxpx;
- font-size:8px !important;
   line-height:28px;
   font-weight: normal;
   a {
