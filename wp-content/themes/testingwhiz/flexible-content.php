@@ -331,8 +331,10 @@
 								<div class="client-logo-slider">
 								   <?php while (have_rows('logo_list')) : the_row(); ?>
 										<?php if (get_sub_field('logo_image')) { ?>
+											<div class="item">
 												<img src="<?php echo the_sub_field('logo_image'); ?>" alt="<?php echo the_sub_field('logo_title'); ?>" >
-										<?php } ?>
+											</div>
+												<?php } ?>
 								   <?php endwhile;?>
 								</div>
 							</div>							
