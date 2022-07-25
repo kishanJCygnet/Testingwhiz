@@ -491,7 +491,7 @@ function add_blog_rewrites($wp_rewrite)
 }
 /* End */
 
-/* Footer form API call start */
+/* COMMUNITY form API call start */
 /*
 function getauthtoken_testingwhiz_app(){
     $url = "https://account-api.cygnature.io/api/v1.0/auth/token";
@@ -561,68 +561,66 @@ function RegisterNewUser_testingwhiz($data){
 
 add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );
 */
-/*
-function getauthtoken_testingwhiz_app(){
-    $url = "https://bapi.cygnature.io/api/v1.0/auth/token";
-
-    $headers = array(
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Basic MkFDMkRFRDMzMjY1NDc5MzlFMUQyM0Y3Mjk4ODJEMzc6cEdNeDFhYUJDMW5WRHMraXNCbDBKbnMyNjBCRmdYZjNLcy9HQXE2dw==',
-            'app_auth_type' => 'cygnature-oauth2'
-            );
-
-    $fields = array("email"=>"priyank.cygnature@yopmail.com","password"=>"Admin@123");
-
-    $result = wp_remote_post($url, array(
-        'method' => 'POST',
-        'headers' => $headers,
-        'httpversion' => '1.0',
-        'sslverify' => false,
-        'body' => json_encode($fields))
-    );
-	//echo "<pre>";print_r($result);exit;
-    $response = wp_remote_retrieve_body($result);
-
-    return $response;
-}
-
+/* Test api */
 function RegisterNewUser_testingwhiz($data){
-	if($_POST['buttonclicked'] == "signup"){
-		$data = array("first_name"=>$_POST['your-name'],
-					 "last_name"=>$_POST['your-name'],
-					 "email"=>$_POST['your-email'],
-					 "country_code"=>$_POST['country-code'],
-					 "phone_number"=>$_POST['your-contact'],
-					 "user_role"=> "User",
-					  "profession_type"=>$_POST['profession-type'],
-					  "enable_marketing_update"=>is_array($_POST['enable_marketing_update'])?true:false,
-					  "t_and_c_acceptedDate"=>is_array($_POST['enable_marketing_update'])?gmdate("Y-m-d\TH:i:s\Z"):null,
-					 "company_name"=> $_POST['company-name'],
-					 "company_address"=> "API Address",
-					 "user_plan"=> "b53ca939-797e-428e-a817-fcd7fae0f8dc");
+	if($_POST['buttonclicked'] == "Community"){
+		$data = array("name"=>$_POST['community-name'],
+					 "email"=>$_POST['community-email'],
+					 "phone"=>$_POST['community-contact'],
+					 "company"=>$_POST['community-company-name'],
+					 "message"=>$_POST['community-message'],
+					 "title"=> "",
+					 "city"=> "",
+					 "state"=> "",
+					 "country"=> $_POST['community-country'],
+					 "source"=> "",
+					 "promoCode"=> "",
+					 "resellerCode"=> "",
+					 "GDPRPurpose"=> "I agree to the TestingWhiz Privacy Policy and Terms of Use",
+					 "consent"=> "Yes",  // if privacy checkbox ticked then value should be "Yes" else empty string
+					 "productVersionId"=> "75",
+					 "licenseType"=> "Trial",
+					 "maxConcurrentUsers"=> "1",
+					 "product"=> "COMMUNITY",
+					 "qty"=> "1",
+					 "liveDemo"=> "true", //depends on check box
+					 "maxExecutorUsers"=> "1",
+					 "numberOfUser"=> "1");
 	
-		$accesstoken = getauthtoken_testingwhiz_app();
-		$accesstoken = json_decode($accesstoken,1);
-		$accesstoken = $accesstoken['data']['access_token'];
-
-		$url = "https://bapi.cygnature.io/api/v1.0/account/create_user";
+		$url = "http://staging.usercentral.testing-whiz.com/regservice/75";
 
 		$headers = array(
-				'Content-Type' => 'application/json',
-				'Authorization' => 'Bearer '.$accesstoken,
-				'app_auth_type' => 'cygnature-oauth2'
-				);
+			'Content-Type' => 'application/json'
+		);
 
 		$result = wp_remote_post($url, array(
 			'method' => 'POST',
-			'headers' => $headers,
-			'httpversion' => '1.0',
-			'sslverify' => false,
-			'body' => json_encode($data))
+			//'headers' => $headers,
+			//'httpversion' => '1.0',
+			//'sslverify' => false,
+			//'body' => json_encode($data))
+			'body' => $data)
 		);
-
+		$body = wp_remote_retrieve_body( $result );
+		//$test = json_encode($result);
+echo "<pre>";print_r($body);
+echo "=====================================================================";
+//echo "<pre>";print_r(json_decode($result));
+echo "=====================================================================";
+//echo "<pre>";print_r(json_decode($result['body']));
+//echo "<pre>";print_r(json_decode($test));
+echo "=====================================================================";
+//echo "<pre>";print_r($result['http_response']['response']);
+/*echo "<pre>";print_r($result['http_response']['response:protected']);
+echo "=====================================================================";
+echo "<pre>";print_r($result['http_response']['response']);
+echo "=====================================================================";
+echo "<pre>";print_r($result['http_response']->response);
+echo "=====================================================================";
+echo "<pre>";print_r($result['http_response']->response['success']);*/
+exit;
 		$response = json_decode($result['body'],1);
-		//echo "<pre>";print_r($response);exit;
+		echo "<pre>";print_r($response);exit;
 		return $response['message'];
 	}else{
 		return;
@@ -630,8 +628,8 @@ function RegisterNewUser_testingwhiz($data){
 
 }
 
-add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );*/
-/* Footer form API call end */
+add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );
+/* COMMUNITY form API call end */
 
 function pagely_security_headers( $headers ) {
     $headers['X-XSS-Protection'] = '1; mode=block';
@@ -694,8 +692,8 @@ function my_validate_email($result, $tag) {
     $formName = 'Contact Us'; // Change to name of the form containing this field
     $fieldName = 'your-email'; // Change to your form's unique field name
 	
-	$formName1 = 'Get 15 Days Free Trial'; // Change to name of the form containing this field
-    $fieldName1 = 'your-email'; // Change to your form's unique field name
+	$formName1 = 'Community form'; // Change to name of the form containing this field
+    $fieldName1 = 'community-email'; // Change to your form's unique field name
     
 	$errorMessage = 'Email has already been submitted'; // Change to your error message
     $name = $tag['name'];
