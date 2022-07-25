@@ -52,36 +52,31 @@
 		<?php endif;
 	/* End banner content */	
 	
-	
-	
-	/* Product Features Sections */
-	?>
-
+	/* Product Features Sections */ ?>
 	<section class="pb-0">
 		<?php
-	/* Home Content Sections */ 
-	if (get_field('features_title') || get_field('features_content') || get_field('features_sub_title')){ ?>
-
-		 <div class="container section-container-padding">
-			<div class="title-heading">
-				<?php if (get_field('features_title')){ ?>
-					<h2 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_field('features_title'); ?>
-						<span class="heading-border"></span> 
-					</h2>
-				<?php } ?>
-				<?php if (get_field('features_sub_title')){ ?>
-					<h3 class="wow fadeInUp" data-wow-delay="0.6s" ><?php echo the_field('features_sub_title'); ?></h3>
-				<?php } ?>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-xl-12 align-self-center industry-highlight-text">
-					<?php echo the_field('features_content'); ?>
+		/* Home Content Sections */ 
+		if (get_field('features_title') || get_field('features_content') || get_field('features_sub_title')){ ?>
+			 <div class="container section-container-padding">
+				<div class="title-heading">
+					<?php if (get_field('features_title')){ ?>
+						<h2 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_field('features_title'); ?>
+							<span class="heading-border"></span> 
+						</h2>
+					<?php } ?>
+					<?php if (get_field('features_sub_title')){ ?>
+						<h3 class="wow fadeInUp" data-wow-delay="0.6s" ><?php echo the_field('features_sub_title'); ?></h3>
+					<?php } ?>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-xl-12 align-self-center industry-highlight-text">
+						<?php echo the_field('features_content'); ?>
+					</div>
 				</div>
 			</div>
-		</div>
-	<?php } 
-	/* End Home Content Sections */
-	if (have_rows('product_features')) : ?>
+		<?php } 
+		/* End Home Content Sections */
+		if (have_rows('product_features')) : ?>
 		<div class="product-feature-tab">
 			<ul class="nav nav-tabs">
 				<?php $cnt = 1;
@@ -199,8 +194,7 @@
 			</div>
 		</div>
 	<?php endif;
-	/* End Top Tab Section block */	
-	
+	/* End Top Tab Section block */		
 
 	/* Manage content block */
 	if (have_rows('manage_content')) :
@@ -252,6 +246,11 @@
 								<h3 class="wow fadeInUp" data-wow-delay=".5s" data-wow-offset="50"><?php echo the_sub_field('sub_title'); ?></h3>
 							<?php } ?>
 						</div>
+						<?php if (get_sub_field('description')){ ?>
+							<div class="icon-box-content">
+								<?php echo the_sub_field('description'); ?>
+							</div>
+						<?php } ?>
 						<?php 
 						$dynamic_col = get_sub_field('columns');
 						if (have_rows('icon_box_content')) : $s = 1;  ?>
