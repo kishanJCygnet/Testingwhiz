@@ -269,8 +269,8 @@ function testimonial_slider()
                 animateIn: 'fadeIn',
 				items: 1,
 				navText: [
-					'<span><img src="<?php echo THEME_PATH; ?>assert/images/right-arrow.png" alt="" /></span>',
-                    '<span><img src="<?php echo THEME_PATH; ?>assert/images/right-arrow.png" alt="" /></span>'
+					'<span><img src="<?php echo THEME_PATH; ?>assets/images/right-arrow.png" alt="" /></span>',
+                    '<span><img src="<?php echo THEME_PATH; ?>assets/images/right-arrow.png" alt="" /></span>'
 				],               
 				
 			})
