@@ -22,6 +22,7 @@
     }
     .testimonial-content {
         align-items: center;
+        padding-bottom: 100px;
         @include bp(md-max) {
             flex-wrap: wrap;
             justify-content: center;
@@ -56,11 +57,13 @@
         .short-decoration {           
             padding-left: 100px;
             background-color: #fff;
-            padding: 15px;
+            padding: 30px 50px;
             border-radius: 15px;
             color: #0F3764;
             width: 730px;
             margin: auto;
+            box-shadow: 0px 51px 0px -23px rgb(156 204 204 / 77%), 0px 109px 0px -56px rgb(156 204 204 / 48%);
+            position: relative;
             @include bp(md-max) {
                 padding-left: 0;
                 text-align: center;
@@ -70,27 +73,29 @@
                 margin-bottom: 2px;
             }
             p {
-                margin-top: 45px;
+                margin-top: 15px;
                 position: relative;
                 color: #0F3764;
                 @include bp(md-max) {
                    margin-top: 10px;
                    padding-left: 40px;
                 }
-                &::before {
-                    content: "";
-                    background-image: url("images/quote.png");
-                    position: absolute;
-                    top: 0;
-                    width: 33px;
-                    height: 33px;
-                    background-repeat: no-repeat;
-                    left: -45px;
-                    @include bp(md-max) {                  
-                        left: 0;
-                    }
-                   
-                }
+                
+            }
+            &::before {
+                content: "";
+                background-image: url(../../images/left-quotes-sign.png);
+                position: absolute;
+                top: -19px;
+                width: 50px;
+                height: 50px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                right: 18px;
+                transform: rotate(180deg);
+                @include bp(md-max) {                  
+                    left: 0;
+                }               
             }
         }
     }
