@@ -231,7 +231,7 @@ function testimonial_slider()
                 <div class="testimonial">
                     <div class="owl-carousel testimonial-slider">
                        <?php foreach ($testimonials as $testimonial) :?>
-                            <div class="testimonial-content d-flex">
+                            <div class="testimonial-content">
                                 <div class="client-details text-dark-blue wow fadeIn" >
                                     <?php if (get_field('image', $testimonial->ID)) { ?>
                                             <img src="<?php echo the_field('image', $testimonial->ID); ?>" >
