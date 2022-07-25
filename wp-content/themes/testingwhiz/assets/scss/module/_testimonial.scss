@@ -5,6 +5,12 @@
 }
 
 .testimonial-section {
+    background-color: #0F3764 !important;
+    .title-heading{
+        h2{
+            color: #fff;
+        }
+    }
     .testimonial {
         width: 1090px;
         margin-top: 40px;
@@ -22,18 +28,18 @@
         }
 
         .client-details {
-            min-width: 530px;
-            height: 530px;
-            min-height: 530px;
-            max-width: 100%;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
-            border-radius: 50%;
-            margin-left: 5px;
-            margin-bottom: 10px;
-            margin-top: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            // min-width: 530px;
+            // height: 530px;
+            // min-height: 530px;
+            // max-width: 100%;
+            // box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+            // border-radius: 50%;
+            // margin-left: 5px;
+            // margin-bottom: 10px;
+            // margin-top: 5px;
+            // display: flex;
+            // align-items: center;
+            // justify-content: center;
 
             @include bp(md-max) {
             min-width: 300px;
@@ -49,6 +55,12 @@
         }
         .short-decoration {           
             padding-left: 100px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 15px;
+            color: #0F3764;
+            width: 730px;
+            margin: auto;
             @include bp(md-max) {
                 padding-left: 0;
                 text-align: center;
@@ -60,6 +72,7 @@
             p {
                 margin-top: 45px;
                 position: relative;
+                color: #0F3764;
                 @include bp(md-max) {
                    margin-top: 10px;
                    padding-left: 40px;
@@ -87,9 +100,9 @@
         background-color: #8ebf69;
         padding: 15px 30px;
         border-radius: 44px;
-        bottom: 50px;
+        bottom: 0px;
         position: absolute;
-        left: calc(50% - 174px);
+        // left: calc(50% - 174px);
         @include bp(md-max) {
          position: relative;
         bottom: 0px;
