@@ -492,100 +492,40 @@ function add_blog_rewrites($wp_rewrite)
 /* End */
 
 /* COMMUNITY form API call start */
-/*
-function getauthtoken_testingwhiz_app(){
-    $url = "https://account-api.cygnature.io/api/v1.0/auth/token";
-
-    $headers = array(
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Basic RDI2OTZBRkE2RUVGNDk3Mzk3NDJGMUNGQjMwNzM3QTE6YkpmbVF5N3dFNDVYRXkxeG1zYkNxK3JLSFVpRzdhUWNkTkdEWVVrbA==',
-            'app_auth_type' => 'cygnature-oauth2'
-            );
-
-    $fields = array("email"=>"cygnature.marketing@cygnetinfotech.com","password"=>"Bok@83011");
-
-    $result = wp_remote_post($url, array(
-        'method' => 'POST',
-        'headers' => $headers,
-        'httpversion' => '1.0',
-        'sslverify' => false,
-        'body' => json_encode($fields))
-    );
-    $response = wp_remote_retrieve_body($result);
-
-    return $response;
-}
-
-function RegisterNewUser_testingwhiz($data){
-	if($_POST['buttonclicked'] == "signup"){
-		$data = array("first_name"=>$_POST['your-name'],
-					 "last_name"=>$_POST['your-name'],
-					 "email"=>$_POST['your-email'],
-					 "country_code"=>$_POST['country-code'],
-					 "phone_number"=>$_POST['your-contact'],
-					 "user_role"=> "User",
-					  "profession_type"=>$_POST['profession-type'],
-					  "enable_marketing_update"=>is_array($_POST['enable_marketing_update'])?true:false,
-					  "t_and_c_acceptedDate"=>is_array($_POST['enable_marketing_update'])?gmdate("Y-m-d\TH:i:s\Z"):null,
-					 "company_name"=> $_POST['company-name'],
-					 "company_address"=> "API Address",
-					 "user_plan"=> "903233ee-2174-42f0-ac87-82d9db6735a0");
-	
-		$accesstoken = getauthtoken_testingwhiz_app();
-		$accesstoken = json_decode($accesstoken,1);
-		$accesstoken = $accesstoken['data']['access_token'];
-
-		$url = "https://account-api.cygnature.io/api/v1.0/account/create_user";
-
-		$headers = array(
-				'Content-Type' => 'application/json',
-				'Authorization' => 'Bearer '.$accesstoken,
-				'app_auth_type' => 'cygnature-oauth2'
-				);
-
-		$result = wp_remote_post($url, array(
-			'method' => 'POST',
-			'headers' => $headers,
-			'httpversion' => '1.0',
-			'sslverify' => false,
-			'body' => json_encode($data))
-		);
-
-		$response = json_decode($result['body'],1);
-		return $response['message'];
-	}else{
-		return;
-	}
-
-}
-
-add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );
-*/
 /* Test api */
-function RegisterNewUser_testingwhiz($data){
+function RegisterNewUser_testingwhiz(){
+	echo "in=====";
 	if($_POST['buttonclicked'] == "Community"){
-		$data = array("name"=>$_POST['community-name'],
+		/*$data = array("name"=>$_POST['community-name'],
 					 "email"=>$_POST['community-email'],
-					 "phone"=>$_POST['community-contact'],
-					 "company"=>$_POST['community-company-name'],
+					 //"phone"=>$_POST['community-contact'],
+					 //"company"=>$_POST['community-company-name'],
 					 "message"=>$_POST['community-message'],
 					 "title"=> "",
 					 "city"=> "",
 					 "state"=> "",
-					 "country"=> $_POST['community-country'],
+					 "validity"=> "30",
+					 "userId"=> "",
+					 //"country"=> $_POST['community-country'],
 					 "source"=> "",
 					 "promoCode"=> "",
 					 "resellerCode"=> "",
 					 "GDPRPurpose"=> "I agree to the TestingWhiz Privacy Policy and Terms of Use",
 					 "consent"=> "Yes",  // if privacy checkbox ticked then value should be "Yes" else empty string
-					 "productVersionId"=> "75",
+					 "productVersionId"=> "72",
 					 "licenseType"=> "Trial",
 					 "maxConcurrentUsers"=> "1",
 					 "product"=> "COMMUNITY",
 					 "qty"=> "1",
 					 "liveDemo"=> "true", //depends on check box
 					 "maxExecutorUsers"=> "1",
-					 "numberOfUser"=> "1");
+					 "numberOfUser"=> "1",
+					 "comment"=>"",
+					 "orderNo"=>"",
+					 "number"=>"",
+					 "downloadPurpose"=>"",
+					 "getStarted"=>"",
+					 "amount"=>"");
 	
 		$url = "http://staging.usercentral.testing-whiz.com/regservice/75";
 
@@ -595,40 +535,142 @@ function RegisterNewUser_testingwhiz($data){
 
 		$result = wp_remote_post($url, array(
 			'method' => 'POST',
-			//'headers' => $headers,
+			'headers' => $headers,
 			//'httpversion' => '1.0',
 			//'sslverify' => false,
-			//'body' => json_encode($data))
-			'body' => $data)
+			'body' => json_encode($data))
+			//'body' => $data)
 		);
-		$body = wp_remote_retrieve_body( $result );
-		//$test = json_encode($result);
-echo "<pre>";print_r($body);
-echo "=====================================================================";
-//echo "<pre>";print_r(json_decode($result));
-echo "=====================================================================";
-//echo "<pre>";print_r(json_decode($result['body']));
-//echo "<pre>";print_r(json_decode($test));
-echo "=====================================================================";
-//echo "<pre>";print_r($result['http_response']['response']);
-/*echo "<pre>";print_r($result['http_response']['response:protected']);
-echo "=====================================================================";
-echo "<pre>";print_r($result['http_response']['response']);
-echo "=====================================================================";
-echo "<pre>";print_r($result['http_response']->response);
-echo "=====================================================================";
-echo "<pre>";print_r($result['http_response']->response['success']);*/
-exit;
+		echo "<pre>";print_r($result);exit;
 		$response = json_decode($result['body'],1);
-		echo "<pre>";print_r($response);exit;
-		return $response['message'];
+			echo "<pre>";print_r($response);exit;
+		*/
+		
+		$url = "http://staging.usercentral.testing-whiz.com/regservice/75";
+		/*$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'POST',
+		CURLOPT_POSTFIELDS =>'{
+			"userId": "",
+			"productVersionId": "72",
+			"licenseType": "Trial",
+			"validity": "",
+			"maxConcurrentUsers": "1",
+			"amount": "",
+			"comment": "",
+			"name": "'.$_POST['community-name'].'",
+			"product": "COMMUNITY",
+			"email": "'.$_POST['community-email'].'",
+			"company": "'.$_POST['community-company-name'].'",
+			"orderNo": "",
+			"qty": "1",
+			"number": "",
+			"promoCode": "",
+			"phone": "'.$_POST['community-contact'].'",
+			"title": "",
+			"country": "'.$_POST['community-country'].'",
+			"state": "",
+			"city": "",
+			"source": "",
+			"liveDemo": "true",
+			"message": "'.$_POST['community-message'].'",
+			"downloadPurpose": "",
+			"resellerCode": "",
+			"numberOfUser": "1",
+			"getStarted": "",
+			"tellUs": "",
+			"attachedDocUrl": "",
+			"loggedInAdminId": "",
+			"transactionId": "",
+			"GDPRPurpose": "I agree to the TestingWhiz Privacy Policy and Terms of Use",
+			"consent": "Yes",
+			"maxExecutorUsers": "1"
+		}',
+		CURLOPT_HTTPHEADER => array(
+		'Content-Type: application/json'
+		),
+		));
+
+		$response = curl_exec($curl);
+
+		curl_close($curl);
+		echo $response;exit;*/
+		//echo "<pre>"; print_r($_POST);
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'POST',
+		CURLOPT_POSTFIELDS =>'{
+		"userId": "",
+		"productVersionId": "75",
+		"licenseType": "Trial",
+		"validity": "",
+		"maxConcurrentUsers": "1",
+		"amount": "",
+		"comment": "",
+		"name": "'.(string)$_POST['community-name'].'",
+		"product": "COMMUNITY",
+		"email": "'.$_POST['community-email'].'",
+		"company": "'.(string)$_POST['community-company-name'].'",
+		"orderNo": "",
+		"qty": "1",
+		"number": "",
+		"promoCode": "",
+		"phone": "'.(string)$_POST['community-contact'].'",
+		"title": "",
+		"country": "'.(string)$_POST['community-country'].'",
+		"state": "",
+		"city": "",
+		"source": "",
+		"liveDemo": "true",
+		"message": "'.(string)$_POST['community-message'].'",
+		"downloadPurpose": "",
+		"resellerCode": "",
+		"numberOfUser": "1",
+		"getStarted": "",
+		"tellUs": "",
+		"attachedDocUrl": "",
+		"loggedInAdminId": "",
+		"transactionId": "",
+		"GDPRPurpose": "",
+		"consent": "",
+		"maxExecutorUsers": "1"
+		}',
+		CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/json'
+		),
+		));
+
+		$response = curl_exec($curl);
+
+		curl_close($curl);
+		if($response == 1){
+			return 1;
+		} else {
+			return 0;
+		}
 	}else{
 		return;
 	}
 
 }
 
-add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );
+//add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );
 /* COMMUNITY form API call end */
 
 function pagely_security_headers( $headers ) {
@@ -738,6 +780,17 @@ function my_validate_email($result, $tag) {
 		}
 	endif;
 	/* End check domain name */
+	
+	/* Start api code*/
+	echo $apicall = RegisterNewUser_testingwhiz($_POST);
+	exit;
+	if($apicall == 1){
+		echo "1==========";
+	} else {
+		echo "0=========";
+	}
+	exit;
+	/* End api code */
 	
     return $result;
 }
