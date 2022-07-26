@@ -491,148 +491,6 @@ function add_blog_rewrites($wp_rewrite)
 }
 /* End */
 
-/* Footer form API call start */
-/*
-function getauthtoken_testingwhiz_app(){
-    $url = "https://account-api.cygnature.io/api/v1.0/auth/token";
-
-    $headers = array(
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Basic RDI2OTZBRkE2RUVGNDk3Mzk3NDJGMUNGQjMwNzM3QTE6YkpmbVF5N3dFNDVYRXkxeG1zYkNxK3JLSFVpRzdhUWNkTkdEWVVrbA==',
-            'app_auth_type' => 'cygnature-oauth2'
-            );
-
-    $fields = array("email"=>"cygnature.marketing@cygnetinfotech.com","password"=>"Bok@83011");
-
-    $result = wp_remote_post($url, array(
-        'method' => 'POST',
-        'headers' => $headers,
-        'httpversion' => '1.0',
-        'sslverify' => false,
-        'body' => json_encode($fields))
-    );
-    $response = wp_remote_retrieve_body($result);
-
-    return $response;
-}
-
-function RegisterNewUser_testingwhiz($data){
-	if($_POST['buttonclicked'] == "signup"){
-		$data = array("first_name"=>$_POST['your-name'],
-					 "last_name"=>$_POST['your-name'],
-					 "email"=>$_POST['your-email'],
-					 "country_code"=>$_POST['country-code'],
-					 "phone_number"=>$_POST['your-contact'],
-					 "user_role"=> "User",
-					  "profession_type"=>$_POST['profession-type'],
-					  "enable_marketing_update"=>is_array($_POST['enable_marketing_update'])?true:false,
-					  "t_and_c_acceptedDate"=>is_array($_POST['enable_marketing_update'])?gmdate("Y-m-d\TH:i:s\Z"):null,
-					 "company_name"=> $_POST['company-name'],
-					 "company_address"=> "API Address",
-					 "user_plan"=> "903233ee-2174-42f0-ac87-82d9db6735a0");
-	
-		$accesstoken = getauthtoken_testingwhiz_app();
-		$accesstoken = json_decode($accesstoken,1);
-		$accesstoken = $accesstoken['data']['access_token'];
-
-		$url = "https://account-api.cygnature.io/api/v1.0/account/create_user";
-
-		$headers = array(
-				'Content-Type' => 'application/json',
-				'Authorization' => 'Bearer '.$accesstoken,
-				'app_auth_type' => 'cygnature-oauth2'
-				);
-
-		$result = wp_remote_post($url, array(
-			'method' => 'POST',
-			'headers' => $headers,
-			'httpversion' => '1.0',
-			'sslverify' => false,
-			'body' => json_encode($data))
-		);
-
-		$response = json_decode($result['body'],1);
-		return $response['message'];
-	}else{
-		return;
-	}
-
-}
-
-add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );
-*/
-/*
-function getauthtoken_testingwhiz_app(){
-    $url = "https://bapi.cygnature.io/api/v1.0/auth/token";
-
-    $headers = array(
-            'Content-Type' => 'application/json',
-            'Authorization' => 'Basic MkFDMkRFRDMzMjY1NDc5MzlFMUQyM0Y3Mjk4ODJEMzc6cEdNeDFhYUJDMW5WRHMraXNCbDBKbnMyNjBCRmdYZjNLcy9HQXE2dw==',
-            'app_auth_type' => 'cygnature-oauth2'
-            );
-
-    $fields = array("email"=>"priyank.cygnature@yopmail.com","password"=>"Admin@123");
-
-    $result = wp_remote_post($url, array(
-        'method' => 'POST',
-        'headers' => $headers,
-        'httpversion' => '1.0',
-        'sslverify' => false,
-        'body' => json_encode($fields))
-    );
-	//echo "<pre>";print_r($result);exit;
-    $response = wp_remote_retrieve_body($result);
-
-    return $response;
-}
-
-function RegisterNewUser_testingwhiz($data){
-	if($_POST['buttonclicked'] == "signup"){
-		$data = array("first_name"=>$_POST['your-name'],
-					 "last_name"=>$_POST['your-name'],
-					 "email"=>$_POST['your-email'],
-					 "country_code"=>$_POST['country-code'],
-					 "phone_number"=>$_POST['your-contact'],
-					 "user_role"=> "User",
-					  "profession_type"=>$_POST['profession-type'],
-					  "enable_marketing_update"=>is_array($_POST['enable_marketing_update'])?true:false,
-					  "t_and_c_acceptedDate"=>is_array($_POST['enable_marketing_update'])?gmdate("Y-m-d\TH:i:s\Z"):null,
-					 "company_name"=> $_POST['company-name'],
-					 "company_address"=> "API Address",
-					 "user_plan"=> "b53ca939-797e-428e-a817-fcd7fae0f8dc");
-	
-		$accesstoken = getauthtoken_testingwhiz_app();
-		$accesstoken = json_decode($accesstoken,1);
-		$accesstoken = $accesstoken['data']['access_token'];
-
-		$url = "https://bapi.cygnature.io/api/v1.0/account/create_user";
-
-		$headers = array(
-				'Content-Type' => 'application/json',
-				'Authorization' => 'Bearer '.$accesstoken,
-				'app_auth_type' => 'cygnature-oauth2'
-				);
-
-		$result = wp_remote_post($url, array(
-			'method' => 'POST',
-			'headers' => $headers,
-			'httpversion' => '1.0',
-			'sslverify' => false,
-			'body' => json_encode($data))
-		);
-
-		$response = json_decode($result['body'],1);
-		//echo "<pre>";print_r($response);exit;
-		return $response['message'];
-	}else{
-		return;
-	}
-
-}
-
-add_action( 'wpcf7_before_send_mail', 'RegisterNewUser_testingwhiz' );*/
-/* Footer form API call end */
-
 function pagely_security_headers( $headers ) {
     $headers['X-XSS-Protection'] = '1; mode=block';
     $headers['X-Content-Type-Options'] = 'nosniff';
@@ -694,8 +552,8 @@ function my_validate_email($result, $tag) {
     $formName = 'Contact Us'; // Change to name of the form containing this field
     $fieldName = 'your-email'; // Change to your form's unique field name
 	
-	$formName1 = 'Get 15 Days Free Trial'; // Change to name of the form containing this field
-    $fieldName1 = 'your-email'; // Change to your form's unique field name
+	$formName1 = 'Community form'; // Change to name of the form containing this field
+    $fieldName1 = 'community-email'; // Change to your form's unique field name
     
 	$errorMessage = 'Email has already been submitted'; // Change to your error message
     $name = $tag['name'];
@@ -745,3 +603,91 @@ function my_validate_email($result, $tag) {
 }
 // use the next line if your field is a **required email** field on your form
 add_filter('wpcf7_validate_email*', 'my_validate_email', 10, 2);
+
+/* COMMUNITY form API call start */
+add_action('wpcf7_before_send_mail', 'cf7_validate_api', 10, 3);
+
+function cf7_validate_api($cf7, &$abort, $submission) {
+	if ($cf7->id() == 24966) 
+    {        
+		/*$apicall = RegisterNewUser_testingwhiz($_POST);
+		if($apicall == 1){
+			//echo "1==========";
+			return;
+		} else {
+			//echo "0=========";
+			$errMsg = "Something went wrong:API Error status 0";
+			$abort = true;
+			$submission->set_response($cf7->message('validation_failed'));
+			$submission->set_response($cf7->filter_message($errMsg)); //custom msg;
+		}*/
+				
+		$url = "http://staging.usercentral.testing-whiz.com/regservice/".PRODUCT_VERSION_ID;
+		$curl = curl_init();
+
+		curl_setopt_array($curl, array(
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_ENCODING => '',
+		CURLOPT_MAXREDIRS => 10,
+		CURLOPT_TIMEOUT => 0,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+		CURLOPT_CUSTOMREQUEST => 'POST',
+		CURLOPT_POSTFIELDS =>'{
+		"userId": "",
+		"productVersionId": "'.PRODUCT_VERSION_ID.'",
+		"licenseType": "Trial",
+		"validity": "",
+		"maxConcurrentUsers": "1",
+		"amount": "",
+		"comment": "",
+		"name": "'.(string)$_POST['community-name'].'",
+		"product": "COMMUNITY",
+		"email": "'.$_POST['community-email'].'",
+		"company": "'.(string)$_POST['community-company-name'].'",
+		"orderNo": "",
+		"qty": "1",
+		"number": "",
+		"promoCode": "",
+		"phone": "'.(string)$_POST['community-contact'].'",
+		"title": "",
+		"country": "'.(string)$_POST['community-country'].'",
+		"state": "",
+		"city": "",
+		"source": "",
+		"liveDemo": "true",
+		"message": "'.(string)$_POST['community-message'].'",
+		"downloadPurpose": "",
+		"resellerCode": "",
+		"numberOfUser": "1",
+		"getStarted": "",
+		"tellUs": "",
+		"attachedDocUrl": "",
+		"loggedInAdminId": "",
+		"transactionId": "",
+		"GDPRPurpose": "",
+		"consent": "",
+		"maxExecutorUsers": "1"
+		}',
+		CURLOPT_HTTPHEADER => array(
+			'Content-Type: application/json'
+		),
+		));
+
+		$response = curl_exec($curl);
+
+		curl_close($curl);
+		if($response == 1){
+			return;
+		} else {
+			$errMsg = "Something went wrong:API Error status 0";
+			$abort = true;
+			$submission->set_response($cf7->message('validation_failed'));
+			$submission->set_response($cf7->filter_message($errMsg)); //custom msg;
+		}		
+    } else {
+		return;
+	}
+}
+/* COMMUNITY form API call end */
