@@ -144,14 +144,23 @@ h3 {
 // .btn:hover {
 //   background-color: #005969;
 // }
-.btn{
+input[type=submit]{
+  border: 1px solid #005969 !important;
+  border-radius: 10px !important;
+  background-color: #005969 !important;
+  &:hover{
+    background-color: #fff !important;
+  }
+}
+.btn,
+input[type=submit]{
 position: relative;
 display: inline-block;
 overflow: hidden;
 text-transform: uppercase;
 border: 1px solid currentColor;
 font-size: 14px;
-padding: 8px 15px;
+padding: 10px 15px;
 background-color: #005969;
 border: 0;
 color: #fff;
@@ -259,11 +268,15 @@ a:active {
 
 .Integrations-section{
   background: transparent linear-gradient(180deg, #FFFFFF 0%, rgba(153, 204, 204, 0.5) 100%) 0% 0% no-repeat padding-box;
+  position: relative;
+  overflow: hidden;
   .icon-box-list{
     width: 1130px;
     max-width: 100%;
     margin: auto;
     margin-top: 35px;
+    z-index: 1;
+    position: relative;
     & > div{
       margin: 15px 0;
     }
@@ -299,6 +312,69 @@ a:active {
   }
 }
 .bg-green-light{
-  background-color:#99CCCC;
+  background-color: rgb(153 204 204 / 22%);
 }
+.bordus-left-bottom{
+  border-bottom-left-radius:150px;
+}
+.bordus-left-top{
+  border-top-left-radius:150px;
+}
+.bordus-right-bottom{
+  border-bottom-right-radius:150px;
+}
+.bordus-right-top{
+  border-top-right-radius:150px;
+}
+}
+
+
+.circle-animation{
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: absolute;
+  top: 60%;
+  right: 6%;
+}
+.circle-animation .span1,
+.circle-animation .span2,
+.circle-animation .span3,
+.circle-animation .span4{
+  content: '';  
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 89, 105, 0.03);
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 15s linear infinite;
+}
+.circle-animation .span2 {
+  animation-delay: 4s;
+}
+.circle-animation .span3 {
+  animation-delay: 8s;
+}
+.circle-animation .span4 {
+  animation-delay: 12s;
+}
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  
+  }
+  100% {
+    transform: scale(30);
+    opacity: 0;
+  }
+}
+
+.circle-animation.canim-2{
+    right: auto;
+    left: -24px;
+    top: 20%;
 }
