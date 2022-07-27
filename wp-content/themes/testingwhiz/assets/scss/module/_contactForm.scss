@@ -66,7 +66,7 @@
     width: 100%;
     display: inline-block;
     bottom: 11px;
-    font-size: 13px;
+    font-size: 13px !important;
 }
 .wpcf7-form-control-wrap.profession-type {
     .wpcf7-not-valid-tip {
@@ -154,11 +154,12 @@ option {
         }
         .wpcf7-not-valid-tip {
             position: absolute;
-            left: 18px;
+            left: 9px;
             right: 0;
             width: 100%;
             display: inline-block;
-            bottom: 0px;
+            bottom: -9px;
+
             @include bp(lg-max) {
                 left: 0 !important;
                  padding-left: 27px;
@@ -209,6 +210,12 @@ input[type=checkbox]:checked:after {
     border-top: 0;
     border-left: 0;
     left: 7px;
+}
+.wpcf7 form .wpcf7-response-output {
+    margin: 0em 0.5em 0em !important;
+    padding: 0.2em 1em;
+    border: 2px solid #00a0d2;
+    font-size: 14px !important;
 }
 
 // *************************  End Contact Form *********************

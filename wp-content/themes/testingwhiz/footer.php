@@ -37,54 +37,55 @@
  <!-- Footer -->
     <footer class="footer ">
         <div class="footer-container">
-            <div class="footer-contents d-flex justify-content-center">
-                <!-- Footer logo begin -->
-                <div class="footer-logo">
-                    <a href="<?php echo site_url(); ?>" title="Testingwhiz" alt="Testingwhiz">
-                        <span class="visually-hidden">Testingwhiz</span>
-                        <img src='<?php echo get_field("footer_logo", "option"); ?>' alt="Testingwhiz">
-                    </a>
-                </div>
-                <!-- Footer logo end -->
-                <div>
-					<!-- social links begin -->
-                    <div class="social-media mb-1">
-                        <span class="mb-md-0 fw-medium textPrimery">
-							 <?php if (get_field('footer_inquiry_email', 'option')) : ?>
-								<span class=" textSecondry">Inquiry :</span> 
-								<a href="mailto:<?php echo the_field('footer_inquiry_email', 'option'); ?>"><?php echo the_field('footer_inquiry_email', 'option'); ?></a>
-								<span class="v-divider mx-2"></span>
-							<?php endif; ?>
-							<?php if (get_field('footer_support_email', 'option')) : ?>
-								<span class=" textSecondry">Support :</span> <a href="mailto:<?php echo the_field('footer_support_email', 'option'); ?>"><?php echo the_field('footer_support_email', 'option'); ?></a>
-								<span class="v-divider mx-2"></span>
-							<?php endif; ?>
-							<?php if (get_field('footer_phone_number', 'option')) : ?>
-								<span class=" textSecondry">Phone :</span> <a href="tel:<?php echo the_field('footer_phone_number', 'option'); ?>"><?php echo the_field('footer_phone_number', 'option'); ?></a>
-							<?php endif; ?>
-                        </span>
-                    </div>
-                    <!-- social links end -->
+			<div class="container">
+				<div class="footer-contents d-flex justify-content-between align-items-center">
+					<!-- Footer logo begin -->
+					<div class="footer-logo">
+						<a href="<?php echo site_url(); ?>" title="Testingwhiz" alt="Testingwhiz">
+							<span class="visually-hidden">Testingwhiz</span>
+							<img src='<?php echo get_field("footer_logo", "option"); ?>' alt="Testingwhiz">
+						</a>
+					</div>
+					<!-- Footer logo end -->
+					<div>
+						<!-- social links begin -->
+						<div class="social-media mb-3">
+							<span class="mb-md-0 fw-medium textPrimery">
+								<?php if (get_field('footer_inquiry_email', 'option')) : ?>
+									<span class=" textSecondry">Inquiry :</span> 
+									<a href="mailto:<?php echo the_field('footer_inquiry_email', 'option'); ?>"><?php echo the_field('footer_inquiry_email', 'option'); ?></a>
+									<span class="v-divider mx-2"></span>
+								<?php endif; ?>
+								<?php if (get_field('footer_support_email', 'option')) : ?>
+									<span class=" textSecondry">Support :</span> <a href="mailto:<?php echo the_field('footer_support_email', 'option'); ?>"><?php echo the_field('footer_support_email', 'option'); ?></a>
+									<span class="v-divider mx-2"></span>
+								<?php endif; ?>
+								<?php if (get_field('footer_phone_number', 'option')) : ?>
+									<span class=" textSecondry">Phone :</span> <a href="tel:<?php echo the_field('footer_phone_number', 'option'); ?>"><?php echo the_field('footer_phone_number', 'option'); ?></a>
+								<?php endif; ?>
+							</span>
+						</div>
+						<!-- social links end -->
 
-                    <!-- Copyright and footer links begin -->
-                    <div class="footer-links d-flex flex-wrap flex-column flex-md-row">
-                        <address
-                            class="copyright-text d-inline-flex mb-2 mb-md-0 justify-content-center justify-content-md-end fw-medium">
-                            Copyright – <?php echo date('Y'); ?> <?php echo the_field('copyright_text', 'option'); ?> </address>
-                        <div class="menu-footer-links-container">
-						<?php wp_nav_menu(array(
-							'theme_location'  => 'footer_menu',
-							'menu_class' => 'footer-links ps-0 d-inline-flex list-none mb-0 justify-content-center justify-content-md-end',
-							'items_wrap'      => '<ul id="menu-footer-links" class="%2$s">%3$s</ul>',
-							'echo'            => true
-						  )); ?>
-                        </div>
-                    </div>
-                    <!-- Copyright and footer links end -->
-                </div>
-            </div>
+						<!-- Copyright and footer links begin -->
+						<div class="footer-links d-flex flex-wrap flex-column flex-md-row">
+							<address
+								class="copyright-text d-inline-flex mb-2 justify-content-center justify-content-md-end fw-medium">
+								Copyright – <?php echo date('Y'); ?> <?php echo the_field('copyright_text', 'option'); ?> </address>
+							<div class="menu-footer-links-container">
+							<?php wp_nav_menu(array(
+								'theme_location'  => 'footer_menu',
+								'menu_class' => 'footer-links ps-0 d-inline-flex list-none mb-0 justify-content-center justify-content-md-end',
+								'items_wrap'      => '<ul id="menu-footer-links" class="%2$s">%3$s</ul>',
+								'echo'            => true
+							)); ?>
+							</div>
+						</div>
+						<!-- Copyright and footer links end -->
+					</div>
+				</div>
+			</div>
         </div>
-
     </footer>
     <!-- End Footer -->
 	
