@@ -19,22 +19,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
 	
-	<link rel="icon" type="image/x-icon" href="<?php echo get_theme_file_uri(); ?>/images/favicons/favicon.ico">
-	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_theme_file_uri(); ?>/images/favicons/16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_theme_file_uri(); ?>/images/favicons/32.png">
-    <link rel="icon" type="image/png" sizes="57x57" href="<?php echo get_theme_file_uri(); ?>/images/favicons/57.png">
-    <link rel="icon" type="image/png" sizes="76x76" href="<?php echo get_theme_file_uri(); ?>/images/favicons/76.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_theme_file_uri(); ?>/images/favicons/96.png">
-    <link rel="icon" type="image/png" sizes="120x120" href="<?php echo get_theme_file_uri(); ?>/images/favicons/120.png">
-    <link rel="icon" type="image/png" sizes="128x128" href="<?php echo get_theme_file_uri(); ?>/images/favicons/128.png">
-    <link rel="icon" type="image/png" sizes="144x144" href="<?php echo get_theme_file_uri(); ?>/images/favicons/144.png">
-    <link rel="icon" type="image/png" sizes="152x152" href="<?php echo get_theme_file_uri(); ?>/images/favicons/152.png">
-    <link rel="icon" type="image/png" sizes="167x167" href="<?php echo get_theme_file_uri(); ?>/images/favicons/167.png">
-    <link rel="icon" type="image/png" sizes="180x180" href="<?php echo get_theme_file_uri(); ?>/images/favicons/180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_theme_file_uri(); ?>/images/favicons/192.png">
-    <link rel="icon" type="image/png" sizes="195x195" href="<?php echo get_theme_file_uri(); ?>/images/favicons/195.png">
-    <link rel="icon" type="image/png" sizes="196x196" href="<?php echo get_theme_file_uri(); ?>/images/favicons/196.png">
-    <link rel="icon" type="image/png" sizes="228x228" href="<?php echo get_theme_file_uri(); ?>/images/favicons/228.png">
+	<link rel="icon" type="image/x-icon" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/favicon.ico">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/32.png">
+    <link rel="icon" type="image/png" sizes="57x57" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/57.png">
+    <link rel="icon" type="image/png" sizes="76x76" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/76.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/96.png">
+    <link rel="icon" type="image/png" sizes="120x120" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/120.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/128.png">
+    <link rel="icon" type="image/png" sizes="144x144" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/144.png">
+    <link rel="icon" type="image/png" sizes="152x152" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/152.png">
+    <link rel="icon" type="image/png" sizes="167x167" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/167.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/192.png">
+    <link rel="icon" type="image/png" sizes="195x195" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/195.png">
+    <link rel="icon" type="image/png" sizes="196x196" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/196.png">
+    <link rel="icon" type="image/png" sizes="228x228" href="<?php echo get_theme_file_uri(); ?>/assets/images/favicons/228.png">
 	
 	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo THEME_PATH; ?>assets/dist/css/owl.carousel.min.css">
