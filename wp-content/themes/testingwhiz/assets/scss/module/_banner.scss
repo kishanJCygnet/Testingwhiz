@@ -4,11 +4,34 @@
 
     &.home-banner {
         .banner-inner-content {
-        background-image: url('../../images/BG.png') !important;
+        background-image: url('../../images/BG.jpg') !important;
         overflow: hidden;
         .img-content{
             height: 530px;
             text-align: right;
+            position: relative;
+            &::after{
+                content: "";
+                height: 142px;
+                width: 193px;
+                background-image: url(../../images/banner-dot.svg)!important;
+                background-size: 100% 100%;
+                position: absolute;
+                z-index: -1;
+                right: 0;
+                bottom: -28px;
+            }
+            &::before{
+                content: '';
+                height: 142px;
+                width: 193px;
+                background-image: url('../../images/banner-dots2.svg') !important;
+                background-size: 100% 100%;
+                position: absolute;
+                z-index: -1;
+                top: 35px;
+                left: 25px
+            }
             img{
                 height: 100%;
                 object-fit: contain;

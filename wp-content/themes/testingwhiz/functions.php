@@ -208,11 +208,9 @@ function testimonial_slider()
                             <?php if (get_field('testimonial_title_partner')) : ?>
                                 <h2 class="section-title"><?php echo the_field('testimonial_title_partner'); ?></h2>
                             <?php endif; ?>
-
                             <?php if (get_field('testimonial_content_partner')) {
                                 echo the_field('testimonial_content_partner');
                             } ?>
-
                         <?php else: ?>
                             <?php if (get_field('testimonial_title', 'option')) : ?>
                                 <h2 class="section-title"><?php echo the_field('testimonial_title', 'option'); ?></h2>
@@ -229,14 +227,15 @@ function testimonial_slider()
 						<?php endif; ?>                    
 
                 <div class="testimonial">
-                    <div class="owl-carousel testimonial-slider">
+                    <ul class="testimonial-slider">
                        <?php foreach ($testimonials as $testimonial) :?>
-                            <div class="testimonial-content">
+                            <li class="testimonial-content">
                                 <div class="client-details text-dark-blue wow fadeIn" >
-                                    <?php if (get_field('image', $testimonial->ID)) { ?>
-                                            <img src="<?php echo the_field('image', $testimonial->ID); ?>" >
-                                    <?php } ?>
-                                    
+                                    <div class="img">
+                                        <?php if (get_field('image', $testimonial->ID)) { ?>
+                                                <img src="<?php echo the_field('image', $testimonial->ID); ?>" >
+                                        <?php } ?>                                 
+                                    </div>   
                                 </div>
                                 <div class="short-decoration">
                                     <h3 class="p1 wow fadeInUp" data-wow-delay="0.3s" ><?php echo $testimonial->post_title;?></h3>
@@ -251,13 +250,17 @@ function testimonial_slider()
                                    </p>
 
                                 </div>                                   
-                            </div>
+                                    </li>
                        <?php endforeach;?>
+                    </ul>
+                    <div class="nav-arrow">
+                        <span class="arrow-prev"><img src="<?php echo THEME_PATH; ?>assets/images/right-arrow.png" alt="" /></span>
+                        <span class="arrow-next"><img src="<?php echo THEME_PATH; ?>assets/images/right-arrow.png" alt="" /></span>
                     </div>
                 </div>
             </div>
         </section>
-		<script>
+		<!-- <script>
 		jQuery(document).ready(function() {
 			jQuery('.testimonial-slider').length && jQuery('.testimonial-slider').owlCarousel({
 				loop: false,
@@ -275,7 +278,7 @@ function testimonial_slider()
 				
 			})
 		})
-		</script>
+		</script> -->
    <?php
         $testimonialVar = ob_get_clean();
         return $testimonialVar;

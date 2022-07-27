@@ -73,13 +73,13 @@ body{
     position: relative;
     &::after {
         content: "";
-        width:1.5px;
+        width: 1.5px;
         position: absolute;
-        top:2px;        
-        bottom:2px;        
-        left:2px;        
-        margin:0px 10px;        
-        background-color: #0c3761;
+        top: 2px;
+        bottom: 2px;
+        left: -11px;
+        margin: 0 10px;
+        background-color: #ffffff;
     }
 }
 
