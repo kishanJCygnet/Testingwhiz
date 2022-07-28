@@ -82,8 +82,7 @@
 			<ul class="nav nav-tabs">
 				<?php $cnt = 1;
 				while (have_rows('product_features')) : the_row(); 
-					$dynamicid =  preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('tab_title')); //str_replace(' ', '_', get_sub_field('tab_title')); 
-					?>				
+					$dynamicid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('tab_title')); ?>				
 					<li class="nav-item">						
 						<a href="#<?php echo $dynamicid; ?>" class="nav-link <?php if($cnt==1){ ?>active<?php } ?>" data-bs-toggle="tab">
 							<?php if (get_sub_field('tab_image')){ ?>
@@ -115,9 +114,8 @@
 			<div class="tab-content">
 				<?php $o=1; $tabcnt = 1;
 				while (have_rows('product_features')) : the_row(); 
-				$dynamicinnerid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('tab_title'));  
-				//$dynamicinnerid = str_replace(' ', '_', get_sub_field('tab_title'));  
-				?>
+				//$dynamicinnerid = str_replace(' ', '_', get_sub_field('tab_title')); 
+				$dynamicinnerid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('tab_title'));  ?>
 				<section id="<?php echo $dynamicinnerid; ?>" class="tab-pane <?php if($tabcnt==1){ ?>show active<?php } ?>">
 					<div class="container">	
 						<div class="product-feature-content">
