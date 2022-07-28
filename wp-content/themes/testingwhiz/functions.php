@@ -529,6 +529,35 @@ echo '<link rel="icon" type="image/x-icon" href="' . get_theme_file_uri() . '/im
 add_action( 'admin_head', 'favicon4admin' );
 
 
+/* Start Display image icon within menu item */
+add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
+
+function my_wp_nav_menu_objects( $items, $args ) {	
+	// loop
+	foreach( $items as &$item ) {		
+		// vars
+		$icon = get_field('icon_image', $item);	
+		// append icon
+		if( $icon ) {			
+			$extension = pathinfo($icon, PATHINFO_EXTENSION);
+			if($extension == 'svg'){			
+				$stream_opts = [
+					"ssl" => [
+						"verify_peer"=>false,
+						"verify_peer_name"=>false,
+					]
+				];			
+				$item->title .= file_get_contents($icon, false, stream_context_create($stream_opts));
+			} else {
+				$item->title .= ' <img src="'.$icon.'">';
+			}
+		}		
+	}	
+	// return
+	return $items;	
+}
+/* End Display image icon within menu item */
+
 /* Same email validation for forms */
 function is_already_submitted($formName, $fieldName, $fieldValue) {
     require_once(ABSPATH . 'wp-content/plugins/contact-form-7-to-database-extension/CFDBFormIterator.php');
@@ -555,8 +584,8 @@ function my_validate_email($result, $tag) {
     $formName = 'Contact Us'; // Change to name of the form containing this field
     $fieldName = 'your-email'; // Change to your form's unique field name
 	
-	$formName1 = 'Community form'; // Change to name of the form containing this field
-    $fieldName1 = 'community-email'; // Change to your form's unique field name
+	$formName1 = 'Enterprise form'; // Change to name of the form containing this field
+    $fieldName1 = 'enterprise-email'; // Change to your form's unique field name
     
 	$errorMessage = 'Email has already been submitted'; // Change to your error message
     $name = $tag['name'];

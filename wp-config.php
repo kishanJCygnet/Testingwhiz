@@ -98,4 +98,4 @@ require_once ABSPATH . 'wp-settings.php';
 define('THEME_PATH', site_url().'/wp-content/themes/testingwhiz/');
 
 /** Define staging API product version ID */
-define('PRODUCT_VERSION_ID', '75');
+define('PRODUCT_VERSION_ID', '72');

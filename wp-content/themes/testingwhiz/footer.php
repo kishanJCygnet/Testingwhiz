@@ -15,7 +15,7 @@
 		<div class="contact-form">
 			<div class="container" id="contactus">			
 			<?php $post_slug = $post->post_name;
-			if($post_slug != '15-days-free-trial' && $post_slug != 'sign-up' && $post_slug != 'thank-you-for-contacting-us' && $post_slug != 'thank-you-for-signing-up' && $post_slug != 'thank-you-for-your-interest' && $post_slug != 'thank-you-for-webinar-registration' && $post_slug != 'thank-you-for-downloading-case-study' && !is_404()){  ?>				
+			if($post_slug != '15-days-free-trial' && $post_slug != 'download' && $post_slug != 'sign-up' && $post_slug != 'thank-you-for-contacting-us' && $post_slug != 'thank-you-for-signing-up' && $post_slug != 'thank-you-for-your-interest' && $post_slug != 'thank-you-for-webinar-registration' && $post_slug != 'thank-you-for-downloading-case-study' && !is_404()){  ?>				
 				<div class="title-heading">	
 					<h2>Book A Demo
 						<span class="heading-border"></span>
@@ -161,7 +161,7 @@
 			} else {
 				location = url + '/thank-you-for-contacting-us';
 			}
-		} else if(e.detail.contactFormId == 24966) {
+		} else if(e.detail.contactFormId == 24966 || e.detail.contactFormId == 31185) {
 			location = url + '/thank-you-for-signing-up';
 		} else if(e.detail.contactFormId == 24382) {
 			//location = url + '/thank-you-for-contacting-us';
