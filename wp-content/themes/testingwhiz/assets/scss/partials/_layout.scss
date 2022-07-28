@@ -270,6 +270,12 @@ a:active {
   background: transparent linear-gradient(180deg, #FFFFFF 0%, rgba(153, 204, 204, 0.5) 100%) 0% 0% no-repeat padding-box;
   position: relative;
   overflow: hidden;
+
+  .icon-box-content{
+    text-align: center;
+    font-size: 16px;
+    margin-top: 30px;
+  }
   .icon-box-list{
     width: 1130px;
     max-width: 100%;

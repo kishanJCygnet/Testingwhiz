@@ -53,6 +53,7 @@
 	/* End banner content */	
 	
 	/* Product Features Sections */ ?>
+	<?php if (have_rows('features_title')) :  ?>
 	<section class="pb-0">
 		<?php
 		/* Home Content Sections */ 
@@ -179,6 +180,7 @@
 		</div>	
 		<?php endif; ?>
 	</section>
+	<?php endif; ?>
 	<?php 
 	/* End Product Features Sections */	
 	

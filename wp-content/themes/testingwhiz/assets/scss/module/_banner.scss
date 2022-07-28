@@ -125,8 +125,15 @@
 .post-type-archive-webinars,
 .half-banner {
     .banner-inner-content {
-        height: 50vh;
+        height: 70vh;
         min-height: 300px;
+        border-bottom-left-radius:100px ;
+    }
+    .text-content {
+        padding-left: 0;
+        h1{
+            text-align: center;
+        }
     }
 }
 .half-banner {
