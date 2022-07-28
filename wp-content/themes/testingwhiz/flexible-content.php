@@ -53,7 +53,7 @@
 	/* End banner content */	
 	
 	/* Product Features Sections */ ?>
-	<?php if (have_rows('features_title')) :  ?>
+	<?php if (have_rows('product_features')) :  ?>
 	<section class="pb-0">
 		<?php
 		/* Home Content Sections */ 
@@ -844,6 +844,106 @@
 				</section>
 		    <?php endif; 
 			/* Table section End */
+			
+			/* Tab within Tab Section */ 
+			/*if (get_row_layout() == 'tab_within_tab_section') :  ?>
+				<section class="tab-within-tab-section <?php echo the_sub_field('main_tab_custom_class'); ?>">
+				
+					<div class="container section-container-padding">
+						<div class="title-heading">
+							<?php if (get_sub_field('main_tab_title')){ ?>
+								<h2 class="wow fadeInUp" data-wow-delay="0.3s"><?php echo the_sub_field('main_tab_title'); ?>
+									<span class="heading-border"></span> 
+								</h2>
+							<?php } ?>
+							<?php if (get_sub_field('main_tab_sub_title')){ ?>
+								<h3 class="wow fadeInUp" data-wow-delay="0.6s" ><?php echo the_sub_field('main_tab_sub_title'); ?></h3>
+							<?php } ?>
+						</div>
+						<?php if (get_sub_field('main_tab_description')){ ?>
+							<div class="row">
+								<div class="col-md-12 col-xl-12 align-self-center industry-highlight-text">
+									<?php echo the_sub_field('main_tab_description'); ?>
+								</div>
+							</div>
+						<?php } ?>
+					</div>
+					
+					<div class="product-feature-tab">
+						<ul class="nav nav-tabs">
+							<?php $cnt = 1;
+							while (have_rows('main_tab_content')) : the_row(); 
+								$dynamicid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('tab_title')); ?>				
+								<li class="nav-item">						
+									<a href="#<?php echo $dynamicid; ?>" class="nav-link <?php if($cnt==1){ ?>active<?php } ?>" data-bs-toggle="tab">
+										<?php if (get_sub_field('tab_image')){ ?>
+											<span class="icon">
+												<?php $extension = pathinfo(get_sub_field('tab_image'), PATHINFO_EXTENSION);
+													if($extension == 'svg'){
+														$tab_image = get_sub_field('tab_image');
+														$stream_opts = [
+															"ssl" => [
+																"verify_peer"=>false,
+																"verify_peer_name"=>false,
+															]
+														];														 
+														echo file_get_contents($tab_image, false, stream_context_create($stream_opts));
+													} else { ?>
+														<img src="<?php echo the_sub_field('tab_image'); ?>" alt="<?php echo the_sub_field('tab_title'); ?>">
+												<?php } ?>
+											</span>
+										<?php } ?> <?php echo the_sub_field('tab_title'); ?>
+									</a>
+								</li>
+							<?php $cnt++;
+							endwhile; ?>
+						</ul>
+						<span class="ac-fow"><i class="fas fa-angle-left"></i></span>
+						<span class="ac-back"><i class="fas fa-angle-right"></i></span>
+					</div>
+					<div class="product-feature">	
+						<div class="tab-content">
+							<?php $o=1; $tabcnt = 1;
+							while (have_rows('main_tab_content')) : the_row();  
+							$dynamicinnerid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('tab_title'));  ?>
+							<section id="<?php echo $dynamicinnerid; ?>" class="tab-pane <?php if($tabcnt==1){ ?>show active<?php } ?>">
+								<div class="container">										
+									<?php if (have_rows('features')) :  ?>
+										<div class="accordion" id="accordionExample<?php echo $o; ?>">								
+											<?php $m=1;
+											while (have_rows('features')) : the_row(); ?>
+												<div class="accordion-content-item">
+													<div class="accordion-item">
+														<h2 class="accordion-header" id="heading<?php echo $o.'_'.$m; ?>">
+														  <button class="accordion-button <?php if($m == 1 && $o == 1){ echo ''; } else { ?> collapsed <?php } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $o.'_'.$m; ?>" aria-expanded="true" aria-controls="collapse<?php echo $o.'_'.$m; ?>">
+															<?php if (get_sub_field('feature_title')){ ?>
+																<span><?php echo the_sub_field('feature_title'); ?></span>
+															<?php } ?>	
+														  </button>
+														</h2>
+														<div id="collapse<?php echo $o.'_'.$m; ?>" class="accordion-collapse collapse <?php if($m == 1 && $o == 1){ ?> show <?php } ?>" aria-labelledby="heading<?php echo $o.'_'.$m; ?>" data-bs-parent="#accordionExample<?php echo $o; ?>">
+														  <div class="accordion-body">
+															<?php if (get_sub_field('feature_description')){ ?>
+																<div class="description p2"><?php echo the_sub_field('feature_description'); ?></div>
+															<?php } ?>
+														  </div>
+														</div>
+													</div>
+												</div>
+											<?php $m++; 
+											endwhile; ?>
+										</div>
+									<?php $o++;  
+									endif; ?>
+								</div>
+							</section>
+						<?php $tabcnt++;
+						endwhile;  ?>		
+						</div>
+					</div>
+				</section>
+			<?php endif;  */
+			/* End Tab within Tab Section */	
 			
 		endwhile;
 	endif; 	
