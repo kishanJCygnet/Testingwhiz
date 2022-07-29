@@ -1,24 +1,95 @@
 .capabilitie-section{
     .icon-box-list{
-        width: 1200px;
+        width: 1000px;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-top: 50px;
         & > div{
-            width: 45% !important;         
+            width: 47% !important;         
             .icon-box{
                 background-color: #fff;
                 border-radius: 10px;
-                 box-shadow: 0 3px 20px rgb(0 0 0 / 8%);
+                box-shadow: 0 3px 20px rgb(0 0 0 / 8%);
                  .icon-box-title-content{
                     padding: 15px;
                     padding-bottom: 0;
+                    h3{
+                        color: #0F3764;
+                    }
                  }
                  .description{
                     padding: 15px;
+                    .p2{font-size: 16px !important;}
+
+                    .list-item{
+                        padding-left: 0;
+                        font-size: 16px;
+                        list-style-type: none;
+                        margin-top: 10px;
+                        li{
+                            margin: 15px 0;
+                            position: relative;
+                            padding-left: 35px;
+                            &::after{
+                                background-size: 100%;
+                                content: "";
+                                background-image: url(../../images/bullets.svg)!important;
+                                width: 18px;
+                                height: 18px;
+                                position: absolute;
+                                background-repeat: no-repeat;
+                                left: 0;
+                                top: 8px;
+                            }
+                        }
+                    }
                  }
             }
         }
     }
+}
+.benifits{ 
+ .icon-box-list{
+    width: 1150px;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    & > div{
+        margin: 40px 0;
+    }
+    .icon-box{
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 3px 20px rgb(0 0 0 / 8%);
+        position: relative;
+        padding: 15px 15px 30px;
+        height: 100%;
+        padding-top: 60px;
+
+        .icon{
+            background-color: #1d466c;
+            display: inline-block;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: calc(50% - 40px);
+            top: -40px;
+            svg{
+                width: 45px;
+                height: 45px;
+                fill: #fff !important;
+                path{
+                    fill: #fff;
+                }
+            }
+        }
+    }
+ }
 }
