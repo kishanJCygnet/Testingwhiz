@@ -161,7 +161,7 @@
 			} else {
 				location = url + '/thank-you-for-contacting-us';
 			}
-		} else if(e.detail.contactFormId == 24966 || e.detail.contactFormId == 31185) {
+		} else if(e.detail.contactFormId == 24966 || e.detail.contactFormId == 31185 || e.detail.contactFormId == 31298) {
 			location = url + '/thank-you-for-signing-up';
 		} else if(e.detail.contactFormId == 24382) {
 			//location = url + '/thank-you-for-contacting-us';
