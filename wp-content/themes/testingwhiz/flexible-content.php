@@ -846,7 +846,7 @@
 			/* Table section End */
 			
 			/* Tab within Tab Section */ 
-			/*if (get_row_layout() == 'tab_within_tab_section') :  ?>
+			if (get_row_layout() == 'tab_within_tab_section') :  ?>
 				<section class="tab-within-tab-section <?php echo the_sub_field('main_tab_custom_class'); ?>">
 				
 					<div class="container section-container-padding">
@@ -901,39 +901,39 @@
 						<span class="ac-fow"><i class="fas fa-angle-left"></i></span>
 						<span class="ac-back"><i class="fas fa-angle-right"></i></span>
 					</div>
-					<div class="product-feature">	
+					<div class="tab-within-subtab-section">	
 						<div class="tab-content">
-							<?php $o=1; $tabcnt = 1;
+							<?php $tabcnt = 1;
 							while (have_rows('main_tab_content')) : the_row();  
 							$dynamicinnerid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('tab_title'));  ?>
 							<section id="<?php echo $dynamicinnerid; ?>" class="tab-pane <?php if($tabcnt==1){ ?>show active<?php } ?>">
 								<div class="container">										
-									<?php if (have_rows('features')) :  ?>
-										<div class="accordion" id="accordionExample<?php echo $o; ?>">								
-											<?php $m=1;
-											while (have_rows('features')) : the_row(); ?>
-												<div class="accordion-content-item">
-													<div class="accordion-item">
-														<h2 class="accordion-header" id="heading<?php echo $o.'_'.$m; ?>">
-														  <button class="accordion-button <?php if($m == 1 && $o == 1){ echo ''; } else { ?> collapsed <?php } ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $o.'_'.$m; ?>" aria-expanded="true" aria-controls="collapse<?php echo $o.'_'.$m; ?>">
-															<?php if (get_sub_field('feature_title')){ ?>
-																<span><?php echo the_sub_field('feature_title'); ?></span>
-															<?php } ?>	
-														  </button>
-														</h2>
-														<div id="collapse<?php echo $o.'_'.$m; ?>" class="accordion-collapse collapse <?php if($m == 1 && $o == 1){ ?> show <?php } ?>" aria-labelledby="heading<?php echo $o.'_'.$m; ?>" data-bs-parent="#accordionExample<?php echo $o; ?>">
-														  <div class="accordion-body">
-															<?php if (get_sub_field('feature_description')){ ?>
-																<div class="description p2"><?php echo the_sub_field('feature_description'); ?></div>
-															<?php } ?>
-														  </div>
-														</div>
-													</div>
-												</div>
-											<?php $m++; 
+									<?php if (have_rows('sub_tab_content')) :  ?>
+										<ul class="nav nav-tabs">
+											<?php $subcnt = 1;
+											while (have_rows('sub_tab_content')) : the_row(); 
+												$subdynamicid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('sub_tab_title')); ?>				
+												<li class="nav-item">						
+													<a href="#<?php echo $subdynamicid; ?>" class="nav-link <?php if($subcnt==1){ ?>active<?php } ?>" data-bs-toggle="tab">
+														<?php echo the_sub_field('sub_tab_title'); ?>
+													</a>
+												</li>
+											<?php $subcnt++;
 											endwhile; ?>
+										</ul>
+										<div class="tab-content">
+											<?php $subsubcnt = 1;
+												while (have_rows('sub_tab_content')) : the_row(); 
+													$subsubdynamicid = preg_replace('/[^A-Za-z0-9\-]/', '', get_sub_field('sub_tab_title')); ?>	
+													<section id="<?php echo $subsubdynamicid; ?>" class="tab-pane <?php if($subsubcnt==1){ ?>show active<?php } ?>">
+														<div class="container">
+															<?php echo the_sub_field('sub_tab_description'); ?>
+														</div>
+													</section>
+												<?php $subsubcnt++;
+												endwhile; ?>
 										</div>
-									<?php $o++;  
+									<?php 
 									endif; ?>
 								</div>
 							</section>
@@ -942,7 +942,7 @@
 						</div>
 					</div>
 				</section>
-			<?php endif;  */
+			<?php endif;
 			/* End Tab within Tab Section */	
 			
 		endwhile;
