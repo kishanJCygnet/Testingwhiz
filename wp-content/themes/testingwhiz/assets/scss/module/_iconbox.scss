@@ -1,23 +1,295 @@
 .capabilitie-section{
     .icon-box-list{
-        width: 1200px;
+        width: 1000px;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        margin-top: 50px;
         & > div{
-            width: 45% !important;         
+            width: 47% !important;   
+            margin: 15px 0;      
             .icon-box{
                 background-color: #fff;
                 border-radius: 10px;
-                 box-shadow: 0 3px 20px rgb(0 0 0 / 8%);
+                box-shadow: 0 3px 20px rgb(0 0 0 / 8%);
                  .icon-box-title-content{
                     padding: 15px;
                     padding-bottom: 0;
+                    h3{
+                        color: #0F3764;
+                    }
                  }
                  .description{
                     padding: 15px;
+                    .p2{font-size: 16px !important;}
+
+                    .list-item{
+                        padding-left: 0;
+                        font-size: 16px;
+                        list-style-type: none;
+                        margin-top: 10px;
+                        li{
+                            margin: 15px 0;
+                            position: relative;
+                            padding-left: 35px;
+                            &::after{
+                                background-size: 100%;
+                                content: "";
+                                background-image: url(../../images/bullets.svg)!important;
+                                width: 18px;
+                                height: 18px;
+                                position: absolute;
+                                background-repeat: no-repeat;
+                                left: 0;
+                                top: 8px;
+                            }
+                        }
+                    }
                  }
+            }
+        }
+    }
+}
+
+.benifits,
+.applications-supported{ 
+ .icon-box-list{
+    width: 1150px;
+    max-width: 100%;
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    & > div{
+        margin: 40px 0;
+    }
+    .icon-box{
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 3px 20px rgb(0 0 0 / 8%);
+        position: relative;
+        padding: 15px 15px 30px;
+        height: 100%;
+        padding-top: 60px;
+
+        .icon{
+            background-color: #1d466c;
+            display: inline-block;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: calc(50% - 40px);
+            top: -40px;
+          
+            svg{
+                width: 45px;
+                height: 45px;
+                fill: #fff !important;
+                path{
+                    fill: #fff;
+                }
+            }
+        }
+    }
+ }
+}
+
+.applications-supported{ 
+    .icon-box-list{
+        margin-top: 40px;
+        &>div{
+            margin-bottom: 0;
+        }
+        .icon-box{
+            padding-top: 30px;
+            &:hover{
+                background-color: #0F3764;
+                .description{
+                color: #fff;
+                }
+            }
+            .icon{
+                background-color: #fff;
+                margin: auto;
+                margin-bottom: 15px;
+                position: static;
+            }
+        }
+    }
+}
+
+.desktop-commands  {
+    .icon-box-list{
+        margin-top: 40px;
+        &>div{
+            margin-bottom: 0;
+        }
+        .icon-box{
+            padding-top: 70px;           
+            .icon{
+                background-color: #fff;
+                margin: auto;
+                margin-bottom: 10px;
+                position: static;
+                width: 45px;
+                height: 45px;
+                svg{
+                    fill: #005969 !important;
+                    path{
+                        fill: #005969;
+                    }
+                }
+            }
+            .icon-box-title-content{
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                background-color: #005969;
+                color: #fff;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                padding: 8px 0px 11px;
+                h3{
+                    font-weight: normal;
+                    font-size: 18px;
+                    position: relative;
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        left: calc(50% - 12px);
+                        top: 100%;
+                        width: 0;
+                        height: 0;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-top: 20px solid #005969;
+                        clear: both;
+                    }
+                }
+            }
+            .description {
+             font-size: 16px !important;
+             .note{    
+                font-size: 12px;
+                line-height: 1.4;
+                margin-top: 13px;
+                span{
+                    color: #e95252;
+                    display: inline-block;
+                    width: 100%;
+                }
+            }
+            }
+        }
+    }
+}
+.community-edition{
+    background-image: url(../../images/community-edition-bg.jpg)!important;   
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #0c3761;
+    background-blend-mode: multiply;
+    text-align: center;
+    .title-heading{
+        h2,
+        h3{
+            color: #fff;
+        }
+    }
+    h4{
+        background-color: #99CCCC;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0px 2px 0px #0c365e;
+        position: absolute;
+        top: -40px;
+    }
+    p{
+        text-align: left;
+    }
+    .icon-box-list{
+        margin-top: 50px;
+        .icon-box{
+            padding: 55px 25px 30px;
+            .link{
+                display: inline-block;
+                margin-top: 10px;
+                font-size: 14px;
+                color: #14171F;
+                opacity: 0.5;
+                img{
+                    margin-left:5px ;
+                }
+            }
+        }
+    }
+}
+.community-license{
+    .icon-box-list{
+        width: 1000px;
+        margin: auto;
+        max-width: 100%;
+    }
+    .icon-box{
+        background-color: #0c365e !important;
+        padding-top: 30px !important;
+        h3{
+            color: #fff;
+            border-bottom: 1px solid #67ecde;
+            display: inline-block;
+            padding: 0 10px;
+            line-height: 2;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        h4{
+            color: #67ECDE;
+            font-size: 20px;
+        }
+        .innerbox{
+            background-color: rgb(5 38 70 / 85%);
+            padding: 20px;
+            border-radius: 14px;
+            margin-top: 20px;
+            h4{
+                text-align: left;
+                color: #fff;
+                margin-bottom: 15px;
+            }
+            ul{
+                color: #fff;
+                padding-left: 0;
+                text-align: left;
+                list-style-type: none;
+                li{
+                    font-size: 16px;
+                    margin: 15px 0;
+                    position: relative;
+                    padding-left: 30px;
+                    line-height: 1.5;
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 8px;
+                        width: 12px;
+                        height: 12px;
+                        background-color: #fff;
+                        border-radius: 50%;
+                        border: 3px solid #67ecc5;
+                    }
+                }
             }
         }
     }
