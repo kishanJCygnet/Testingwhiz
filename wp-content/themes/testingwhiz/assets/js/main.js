@@ -86,7 +86,7 @@ function AddReadMore() {
   var readLessTxt = " Read Less";
   
   //Traverse all selectors with this class and manupulate HTML part to show Read More
-  jQuery(".icon-box .description:not(.Integrations-section .icon-box .description):not(.capabilitie-section .icon-box .description)").each(function() {
+  jQuery(".icon-box .description:not(.benifits .icon-box .description):not(.desktop-commands .icon-box .description):not(.Integrations-section .icon-box .description):not(.capabilitie-section .icon-box .description)").each(function() {
     
     //alert(words.length);
       if (jQuery(this).find(".firstSec").length)
