@@ -97,5 +97,7 @@ require_once ABSPATH . 'wp-settings.php';
 /** Define theme path. */
 define('THEME_PATH', site_url().'/wp-content/themes/testingwhiz/');
 
-/** Define staging API product version ID */
-define('PRODUCT_VERSION_ID', '72');
+/** Define staging API community product version ID */
+define('PRODUCT_COMMUNITY_VERSION_ID', '72');
+/** Define staging API enterprise product version ID */
+define('PRODUCT_ENTERPRISE_VERSION_ID', '73');
