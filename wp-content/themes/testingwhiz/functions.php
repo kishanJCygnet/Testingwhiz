@@ -640,8 +640,29 @@ add_filter('wpcf7_validate_email*', 'my_validate_email', 10, 2);
 add_action('wpcf7_before_send_mail', 'cf7_validate_api', 10, 3);
 
 function cf7_validate_api($cf7, &$abort, $submission) {
-	if ($cf7->id() == 24966) 
+	if ($cf7->id() == 24966 || $cf7->id() == 31185 || $cf7->id() == 31298) 
     {        
+		if($_POST['buttonclicked'] == 'Community'){
+			$versionid = PRODUCT_COMMUNITY_VERSION_ID;
+			$name = $_POST['community-name'];
+			$product = $_POST['buttonclicked'];
+			$email = $_POST['community-email'];
+			$company = $_POST['community-company-name'];
+			$phone = $_POST['community-contact'];
+			$country = $_POST['community-country'];
+			$message = $_POST['community-message'];
+			$downloadpurpose = '';
+		} else {
+			$versionid = PRODUCT_ENTERPRISE_VERSION_ID;
+			$name = $_POST['enterprise-name'];
+			$product = $_POST['buttonclicked'];
+			$email = $_POST['enterprise-email'];
+			$company = $_POST['enterprise-company-name'];
+			$phone = $_POST['enterprise-contact'];
+			$country = $_POST['enterprise-country'];
+			$message = $_POST['enterprise-message'];
+			$downloadpurpose = $_POST['enterprise-ddlPurpose'];
+		}
 		/*$apicall = RegisterNewUser_testingwhiz($_POST);
 		if($apicall == 1){
 			//echo "1==========";
@@ -654,7 +675,7 @@ function cf7_validate_api($cf7, &$abort, $submission) {
 			$submission->set_response($cf7->filter_message($errMsg)); //custom msg;
 		}*/
 				
-		$url = "http://staging.usercentral.testing-whiz.com/regservice/".PRODUCT_VERSION_ID;
+		$url = "http://staging.usercentral.testing-whiz.com/regservice/".$versionid;
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
@@ -668,29 +689,29 @@ function cf7_validate_api($cf7, &$abort, $submission) {
 		CURLOPT_CUSTOMREQUEST => 'POST',
 		CURLOPT_POSTFIELDS =>'{
 		"userId": "",
-		"productVersionId": "'.PRODUCT_VERSION_ID.'",
+		"productVersionId": "'.$versionid.'",
 		"licenseType": "Trial",
 		"validity": "",
 		"maxConcurrentUsers": "1",
 		"amount": "",
 		"comment": "",
-		"name": "'.(string)$_POST['community-name'].'",
-		"product": "COMMUNITY",
-		"email": "'.$_POST['community-email'].'",
-		"company": "'.(string)$_POST['community-company-name'].'",
+		"name": "'.(string)$name.'",
+		"product": "'.(string)$product.'",
+		"email": "'.$email.'",
+		"company": "'.(string)$company.'",
 		"orderNo": "",
 		"qty": "1",
 		"number": "",
 		"promoCode": "",
-		"phone": "'.(string)$_POST['community-contact'].'",
+		"phone": "'.(string)$phone.'",
 		"title": "",
-		"country": "'.(string)$_POST['community-country'].'",
+		"country": "'.(string)$country.'",
 		"state": "",
 		"city": "",
 		"source": "",
 		"liveDemo": "true",
-		"message": "'.(string)$_POST['community-message'].'",
-		"downloadPurpose": "",
+		"message": "'.(string)$message.'",
+		"downloadPurpose": "'.(string)$downloadpurpose.'",
 		"resellerCode": "",
 		"numberOfUser": "1",
 		"getStarted": "",
@@ -698,8 +719,8 @@ function cf7_validate_api($cf7, &$abort, $submission) {
 		"attachedDocUrl": "",
 		"loggedInAdminId": "",
 		"transactionId": "",
-		"GDPRPurpose": "",
-		"consent": "",
+		"GDPRPurpose": "I agree to the TestingWhiz Privacy Policy and Terms of Use",
+		"consent": "Yes",
 		"maxExecutorUsers": "1"
 		}',
 		CURLOPT_HTTPHEADER => array(
@@ -708,7 +729,6 @@ function cf7_validate_api($cf7, &$abort, $submission) {
 		));
 
 		$response = curl_exec($curl);
-
 		curl_close($curl);
 		if($response == 1){
 			return;
