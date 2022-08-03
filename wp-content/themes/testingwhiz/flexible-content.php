@@ -466,7 +466,7 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-12">
-									<a href="<?php echo the_sub_field('contact_us'); ?>" class="btn wow fadeInUp" data-wow-offset="50" ><?php echo the_sub_field('cta_button_label'); ?></a>
+									<a href="<?php echo the_sub_field('contact_us'); ?>" class="btn wow fadeInUp" data-wow-offset="50" ><span class="text"><?php echo the_sub_field('cta_button_label'); ?></span><span class="effect"></span></a>
 								</div>
 							</div>
 						</div>
