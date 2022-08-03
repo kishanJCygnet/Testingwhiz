@@ -41,4 +41,49 @@
             }
         }
     }
+    .supported-data &{
+        
+        .client-logo-slider{
+            width: 700px;
+            margin-left: auto;
+            justify-content: space-between;
+            margin-right: initial;
+            .item{
+                width: 32%;
+                border: 1px solid rgb(218, 218, 218);
+                margin: 8px 0;
+                text-align: center;
+                 img{
+                    filter: grayscale(0%);
+                    height: 80px;
+                    object-fit: contain;
+                    margin: auto;
+
+                 }
+            }
+        }
+    }
 }
+.supported-data{
+    position: relative;
+    .title-heading{
+        position: absolute;
+        top: 40%;
+        width: 430px;
+        text-align: left;
+        left: 251px;
+        &::after{
+            content: "";
+    position: absolute;
+    right: 40px;
+    top: -40px;
+    height: 150px;
+    width: 1px;
+    background-color: #0f3764;
+    opacity: .4;
+        }
+        .heading-border{
+            display: none;
+        }
+    }
+} 
