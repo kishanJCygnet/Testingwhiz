@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	</section>
-	<?php /* Start Footer section dynamic display */ 
+	<?php /* Start Footer section dynamic display */
 		if (get_field('footer_section_text')){ 	?>
 		<section class="footer-section-text-main">
 			<div class="container">
