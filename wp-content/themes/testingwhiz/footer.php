@@ -34,10 +34,24 @@
 			</div>
 		</div>
 	</section>
- <!-- Footer -->
+	<?php /* Start Footer section dynamic display */ 
+		if (get_field('footer_section_text')){ 	?>
+		<section class="footer-section-text-main">
+			<div class="container">
+				<div class="footer-section-text" >
+					<?php echo the_field('footer_section_text'); ?> 
+					<?php if (get_field('footer_section_button_title')){ ?>
+						<a href="<?php echo the_field('footer_section_button_url'); ?>" class="btn"><?php echo the_field('footer_section_button_title'); ?> </a>
+					<?php } ?>
+				</div>
+			</div>
+		</section>
+	<?php } 
+	/* End Footer section dynamic display */ ?>
+	<!-- Footer -->
     <footer class="footer ">
         <div class="footer-container">
-			<div class="container">
+			<div class="container">				
 				<div class="footer-contents d-flex justify-content-between align-items-center">
 					<!-- Footer logo begin -->
 					<div class="footer-logo">
